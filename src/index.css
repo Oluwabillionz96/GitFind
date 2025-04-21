@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+}
+
+@layer components {
+  .test {
+    @apply text-5xl;
+  }
+
+  .content {
+    @apply h-[100vh] bg-amber-800;
+  }
+}
