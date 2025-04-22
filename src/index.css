@@ -1,17 +1,81 @@
 @import "tailwindcss";
+@layer base {
+  body {
+    @apply w-[100vw] h-[100vh];
+  }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  background-color: red;
+  body > * {
+    @apply m-0 p-0 box-border;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
 }
 
 @layer components {
-  .test {
-    @apply text-5xl;
+  .content {
+    @apply h-[100vh] bg-amber-800 p-4;
+  }
+
+  .logo {
+    @apply object-cover w-[25%];
+  }
+
+  .header {
+    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-[#F6F8FA];
+  }
+
+  .header-buttons {
+    @apply text-2xl w-11 h-11 border-2 flex items-center justify-center rounded-[0.5rem];
+  }
+
+  .sidebar {
+    @apply w-[50%] h-[100%] animate-slide-in absolute top-0 left-0 z-20;
+  }
+
+  .menu {
+    @apply h-[100%];
+  }
+
+  .main-layout {
+    @apply w-[100%] h-[84%];
   }
 
   .content {
-    @apply h-[100vh] bg-amber-800;
+    @apply h-[100%] bg-[#fff] relative;
+  }
+
+  .input-container {
+    @apply w-[95%] h-12 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10;
+  }
+
+  .input-container > input {
+    @apply w-[100%] h-[100%] border-0 outline-0 pl-3;
+  }
+
+  .input-container > input::placeholder {
+    @apply text-[0.9rem];
+  }
+
+  .input-container > button {
+    @apply absolute w-[15%] h-[100%] top-0 right-0 text-white bg-[#001529] text-2xl flex items-center justify-center;
+  }
+
+  .fetch-random {
+    @apply bg-[#001529] text-white h-12 w-[95%] text-center text-[1.1rem] rounded-[0.5rem];
+  }
+}
+
+@theme {
+  --animate-slide-in: slide-in 1s 1;
+}
+
+@keyframes slide-in {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
   }
 }

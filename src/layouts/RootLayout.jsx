@@ -1,31 +1,36 @@
-import { Button, Layout } from "antd";
-import { useState } from "react";
-const { Header, Sider, Content } = Layout;
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
+import { IoMdSearch } from "react-icons/io";
+import Sidebar from "../components/Sidebar";
 import { Outlet } from "react-router-dom";
-
+import { Layout } from "antd";
+const { Content } = Layout;
 const RootLayout = () => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollasped, setIscollasped] = useState(true);
   return (
     <>
-      <Layout>
-        <Sider
-          collapsible
-          collapsed={isCollapsed}
-          style={{ display: "none" }}
-        ></Sider>
-      </Layout>
-      <Layout className="content">
-        <Header>
-          <Button
-            type="text"
-            icon={isCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => {
-              setIsCollapsed(!isCollapsed);
-            }}
-          />
-        </Header>
-        <Content>
+      <header className="header">
+        <button
+          className="header-buttons"
+          onClick={() => {
+            setIscollasped(!isCollasped);
+          }}
+        >
+          {isCollasped ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
+        </button>
+        <img
+          src="./gitfind-logo.png"
+          alt="An animated image of a cat with Binoculars"
+          className="logo"
+        />
+        <button className="header-buttons">
+          <IoMdSearch />
+        </button>
+      </header>
+
+      <Layout className="main-layout">
+        <Content className="content">
+          {!isCollasped && <Sidebar />}
           <Outlet />
         </Content>
       </Layout>
