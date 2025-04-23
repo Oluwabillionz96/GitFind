@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@layer components {
+  .loading-profile-container {
+    @apply mt-6 bg-[#B3B9BF] animate-pulse;
+  }
+
+  .loading-profile-container > .name-and-profile-image-section {
+    @apply flex items-center gap-4 p-2;
+  }
+
+  .loading-profile-container
+    > .name-and-profile-image-section
+    > .image-container {
+    @apply w-[45%] aspect-[1] rounded-[50%]  bg-[#7c8690];
+  }
+
+  .loading-profile-container .name-container > h2 {
+    @apply h-6 bg-[#7c8690] w-[100%];
+  }
+
+  .loading-profile-container .name-container > .username {
+    @apply h-3 bg-[#7c8690] w-[70%];
+  }
+
+  .loading-profile-container .date-Joined {
+    @apply h-4 bg-[#7c8690] w-[100%];
+  }
+}
