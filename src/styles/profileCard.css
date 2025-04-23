@@ -2,11 +2,11 @@
 
 @layer components {
   .profile-container {
-    @apply mt-6;
+    @apply mt-6  p-4 flex flex-col gap-[0.9rem];
   }
 
   .name-and-profile-image-section {
-    @apply flex items-center gap-4  p-2;
+    @apply flex items-center gap-4  p-2 bg-[#F6F8FA];
   }
 
   .name-and-profile-image-section > .image-container {
@@ -31,5 +31,29 @@
 
   .date-Joined {
     @apply text-[1.1rem];
+  }
+
+  .bio {
+    @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words;
+  }
+
+  .details {
+    @apply grid grid-cols-2 gap-y-3 mt-6;
+  }
+
+  .details > * {
+    @apply flex flex-col items-start text-center gap-1;
+  }
+
+  .socials {
+    @apply flex flex-col gap-2 bg-[#F6F8FA] p-2;
+  }
+
+  .socials > * {
+    @apply flex gap-2;
+  }
+
+  .socials .icon {
+    @apply h-[21.1px] flex items-center justify-center;
   }
 }

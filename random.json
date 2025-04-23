@@ -7,7 +7,7 @@
   "url": "https://api.github.com/users/Oluwabillionz96",
   "html_url": "https://github.com/Oluwabillionz96",
   "followers_url": "https://api.github.com/users/Oluwabillionz96/followers",
-  "following_url": "https://api.github.com/users/Oluwabillionz96/following{/other_user}",
+  "following_url": "https://api.github.com/users/Oluwabillionz96/following",
   "gists_url": "https://api.github.com/users/Oluwabillionz96/gists{/gist_id}",
   "starred_url": "https://api.github.com/users/Oluwabillionz96/starred{/owner}{/repo}",
   "subscriptions_url": "https://api.github.com/users/Oluwabillionz96/subscriptions",

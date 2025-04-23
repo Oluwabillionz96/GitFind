@@ -2,7 +2,7 @@
 
 @layer components {
   .loading-profile-container {
-    @apply mt-6 bg-[#B3B9BF] animate-pulse;
+    @apply mt-6 bg-[#B3B9BF] animate-pulse p-4 flex flex-col gap-[0.9rem];
   }
 
   .loading-profile-container > .name-and-profile-image-section {
@@ -25,5 +25,13 @@
 
   .loading-profile-container .date-Joined {
     @apply h-4 bg-[#7c8690] w-[100%];
+  }
+
+  .loading-profile-container .bio {
+    @apply h-16  w-[100%] flex flex-col gap-[0.4rem];
+  }
+
+  .loading-profile-container .bio p {
+    @apply h-4 bg-[#7c8690];
   }
 }

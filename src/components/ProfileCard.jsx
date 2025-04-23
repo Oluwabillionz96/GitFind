@@ -1,6 +1,22 @@
 import "../styles/profileCard.css";
+import Bio, { Details } from "./Bio";
+import Contact from "./Contact";
 
-const ProfileCard = ({ profileImageURL, name, userName, dateJoined }) => {
+const ProfileCard = ({
+  profileImageURL,
+  name,
+  userName,
+  dateJoined,
+  bio,
+  followers,
+  following,
+  repos,
+  xUsername,
+  email,
+  location,
+  blog,
+  company,
+}) => {
   return (
     <div className="profile-container">
       <div className="name-and-profile-image-section">
@@ -13,6 +29,15 @@ const ProfileCard = ({ profileImageURL, name, userName, dateJoined }) => {
           <p className="date-Joined">Joined {dateJoined}</p>
         </div>
       </div>
+      <Bio bio={bio} />
+      <Contact
+        xUsername={xUsername}
+        email={email}
+        location={location}
+        blog={blog}
+        company={company}
+      />
+      <Details followers={followers} following={following} repos={repos} />
     </div>
   );
 };
