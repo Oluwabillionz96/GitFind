@@ -1,19 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
-import { IoMdSearch } from "react-icons/io";
+import { MdDarkMode } from "react-icons/md";
 import Sidebar from "../components/Sidebar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Layout } from "antd";
+import { SharedContext } from "../components/SharedContext";
+import SearchBar from "../components/SearchBar";
 const { Content } = Layout;
 const RootLayout = () => {
-  const [isCollasped, setIscollasped] = useState(true);
+  const [isCollasped, setIsCollasped] = useState(true);
+  const location = useLocation();
+  useEffect(() => {
+    setIsCollasped(true);
+  }, [location]);
   return (
     <>
       <header className="header">
         <button
           className="header-buttons"
           onClick={() => {
-            setIscollasped(!isCollasped);
+            setIsCollasped(!isCollasped);
           }}
         >
           {isCollasped ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
@@ -24,14 +30,17 @@ const RootLayout = () => {
           className="logo"
         />
         <button className="header-buttons">
-          <IoMdSearch />
+          <MdDarkMode />
         </button>
       </header>
 
       <Layout className="main-layout">
         <Content className="content">
           {!isCollasped && <Sidebar />}
-          <Outlet />
+          <SharedContext>
+            <SearchBar />
+            <Outlet />
+          </SharedContext>
         </Content>
       </Layout>
     </>

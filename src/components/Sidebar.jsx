@@ -3,24 +3,34 @@ import { GrOverview } from "react-icons/gr";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { RiGitRepositoryLine, RiUserFollowLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
   return (
     <aside className="sidebar">
       <Menu
         mode="inline"
-        defaultSelectedKeys={["1"]}
+        defaultSelectedKeys={[location.pathname]}
         theme="dark"
         className="menu"
         items={[
           {
-            key: "1",
-            icon: <GrOverview />,
+            key: "/",
+            icon: (
+              <Link to={"/"}>
+                <GrOverview />
+              </Link>
+            ),
             label: "Overview",
           },
           {
-            key: "2",
-            icon: <RiGitRepositoryLine />,
+            key: "/repositories",
+            icon: (
+              <Link to={"/repositories"}>
+                <RiGitRepositoryLine />
+              </Link>
+            ),
             label: "Repositories",
           },
           {

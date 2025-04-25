@@ -2,11 +2,11 @@
 
 @layer components {
   .profile-container {
-    @apply mt-6  p-4 flex flex-col gap-[0.9rem];
+    @apply mt-6  py-4 flex flex-col gap-[0.9rem];
   }
 
   .name-and-profile-image-section {
-    @apply flex items-center gap-4  p-2 bg-[#F6F8FA];
+    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-8;
   }
 
   .name-and-profile-image-section > .image-container {
@@ -55,5 +55,17 @@
 
   .socials .icon {
     @apply h-[21.1px] flex items-center justify-center;
+  }
+
+  .details-container {
+    @apply bg-[#F6F8FA] px-4 pb-4;
+  }
+
+  .visit-profile-button {
+    @apply bg-[#f6f8fa] h-12 flex items-center justify-center gap-2 text-[1rem] w-[100%];
+  }
+
+  .visit-profile {
+    @apply w-[100%];
   }
 }

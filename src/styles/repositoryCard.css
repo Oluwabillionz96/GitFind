@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .repository-card {
+    @apply w-[100%] h-16 bg-[#F6F8FA];
+  }
+}
