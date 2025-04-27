@@ -4,7 +4,7 @@ import { fetchItems } from "../Logic/FetchItems";
 import RepositoryCard from "../components/RepositoryCard";
 
 const RepositoriesPage = () => {
-  const { data, loading, setLoading, randomUsers } = useShared();
+  const { data, loading, setLoading, error } = useShared();
   const [repositories, setRepositories] = useState([]);
 
   useEffect(() => {
@@ -17,21 +17,25 @@ const RepositoriesPage = () => {
     });
   }, [data]);
 
-  if (loading || !repositories) {
-    return <p>Loading repositories...</p>;
-  }
+  const stillLoading = loading;
 
   return (
     <>
-      {repositories?.map((repos) => (
-        <li key={repos.id}>
-          <RepositoryCard
-            name={repos?.name}
-            language={repos?.language}
-            desc={repos?.description}
-          />
-        </li>
-      ))}
+      {stillLoading ? (
+        "Still Loading..."
+      ) : error.isError ? (
+        <p>{error.message}</p>
+      ) : (
+        repositories?.map((repos) => (
+          <li key={repos.id}>
+            <RepositoryCard
+              name={repos?.name}
+              language={repos?.language}
+              desc={repos?.description}
+            />
+          </li>
+        ))
+      )}
     </>
   );
 };

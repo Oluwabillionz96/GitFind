@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
 import fetchData, { fetchRandomUser } from "../Logic/FetchData";
@@ -6,8 +6,16 @@ import { Link } from "react-router-dom";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
-  const { setLoading, setData, data, loading, randomUsers, setRandomUsers } =
-    useShared();
+  const {
+    setLoading,
+    setData,
+    data,
+    loading,
+    randomUsers,
+    setRandomUsers,
+    error,
+    setError,
+  } = useShared();
 
   let date = new Date(data?.created_at);
   date = date.toDateString().split(" ");
@@ -30,12 +38,26 @@ const SearchBar = () => {
         />
         <button
           onClick={() => {
-            setLoading(true);
-            fetchData(userInput).then((response) => {
-              setData(response);
-              setLoading(false);
-              setUserInput("");
-            });
+            if (userInput) {
+              setLoading(true);
+              fetchData(userInput)
+                .then((response) => {
+                  setData(response);
+                  setUserInput("");
+                })
+                .catch((err) => {
+                  setError({
+                    ...error,
+                    isError: true,
+                    message: err.message,
+                  });
+                })
+                .finally(() => {
+                  setLoading(false);
+                });
+            } else {
+              alert("Input Required");
+            }
           }}
         >
           <IoMdSearch />
@@ -46,7 +68,7 @@ const SearchBar = () => {
         onClick={() => {
           const numbers = [];
           function randomNumber() {
-            const random = Math.floor(Math.random() * randomUsers.length) + 1;
+            const random = Math.floor(Math.random() * randomUsers?.length) + 1;
             if (!numbers.includes(randomNumber)) {
               numbers.push(random);
             } else {
@@ -54,7 +76,7 @@ const SearchBar = () => {
             }
           }
 
-          if (numbers.length >= randomUsers.length) {
+          if (numbers.length >= randomUsers?.length) {
             fetchRandomUser().then((response) => {
               setRandomUsers(response);
             });
@@ -63,12 +85,22 @@ const SearchBar = () => {
           randomNumber();
 
           setLoading(true);
-          fetchData(randomUsers[numbers[numbers.length - 1]].login).then(
-            (response) => {
-              setData(response);
-              setLoading(false);
-            }
-          );
+          if (isNaN(numbers[numbers.length - 1])) {
+            setLoading(false);
+            setError({ ...error, isError: true, message: "Oops" });
+          } else {
+            const userName = randomUsers[numbers[numbers.length - 1]].login;
+            fetchData(userName)
+              .then((response) => {
+                setData(response);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              .finally(() => {
+                setLoading(false);
+              });
+          }
         }}
       >
         Fetch Random Profile
@@ -85,6 +117,8 @@ const SearchBar = () => {
             </div>
           </div>
         </div>
+      ) : error.isError ? (
+        ""
       ) : (
         <div className="name-and-profile-image-section">
           <div className="image-container">
@@ -96,7 +130,7 @@ const SearchBar = () => {
               <p className="username"> @{data?.login}</p>
             </Link>
 
-            <p className="date-Joined">Joined {data.created_at ? date : ""}</p>
+            <p className="date-Joined">Joined {data?.created_at && date}</p>
           </div>
         </div>
       )}

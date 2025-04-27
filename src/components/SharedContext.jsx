@@ -4,19 +4,30 @@ import fetchData, { fetchRandomUser } from "../Logic/FetchData";
 const DataContext = createContext();
 
 export const SharedContext = ({ children }) => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [randomUsers, setRandomUsers] = useState();
+  const [error, setError] = useState({ isError: false, message: "" });
 
   useEffect(() => {
-    fetchData().then((response) => {
-      setData(response);
-      setLoading(false);
-
-      fetchRandomUser().then((response) => {
-        setRandomUsers(response);
+    fetchData()
+      .then((response) => {
+        setData(response);
+      })
+      .catch((err) => {
+        setError({ ...error, isError: true, message: err.message });
+      })
+      .finally(() => {
+        setLoading(false);
       });
-    });
+
+    fetchRandomUser()
+      .then((response) => {
+        setRandomUsers(response);
+      })
+      .catch((err) =>
+        setError({ ...error, isError: true, message: err.message })
+      );
   }, []);
 
   return (
@@ -28,6 +39,8 @@ export const SharedContext = ({ children }) => {
         setLoading,
         randomUsers,
         setRandomUsers,
+        error,
+        setError,
       }}
     >
       {children}

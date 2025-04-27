@@ -1,98 +1,13 @@
-// import { IoMdSearch } from "react-icons/io";
-import fetchData, { fetchRandomUser } from "../Logic/FetchData";
-import { createContext, useEffect, useState } from "react";
 import ProfileCard from "../components/ProfileCard";
 import LoadingProfileCard from "../components/LoadingProfileCard";
 import { useShared } from "../components/SharedContext";
 
-export const DataContext = createContext();
-
 const HomePage = () => {
-  const { data, setData, loading, setLoading } = useShared();
-  const [userInput, setUserInput] = useState("");
-  const [randomUsers, setRandomUsers] = useState();
-
-
-
-  // fetchItems(data?.followers_url).then((response) => {
-  //   setCount({ ...count, followers: response.length });
-  // });
-  // fetchItems(data?.followers_url.replace("followers", "following")).then(
-  //   (response) => {
-  //     setCount({ ...count, followings: response.length });
-  //   }
-  // );
-  // fetchItems(data?.followers_url).then((response) => {
-  //   setCount({ ...count, followers: response.length });
-  // });
-
-  // let date = new Date(data?.created_at);
-  // date = date.toDateString().split(" ");
-  // date = date.splice(1, date.length - 1);
-  // date = `${date.slice(0, 1)} ${date.slice(2, 3)}`;
-
-  return (
-    <>
-      {/* <h1>GitFind</h1>
-      <div className="input-container">
-        <input
-          type="text"
-          name="user-input"
-          id="user-input"
-          placeholder="Enter a valid Github username"
-          value={userInput}
-          onChange={(e) => {
-            setUserInput(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            setLoading(true);
-            fetchData(userInput).then((response) => {
-              setData(response);
-              setLoading(false);
-              setUserInput("");
-            });
-          }}
-        >
-          <IoMdSearch />
-        </button>
-      </div>
-      <button
-        className="fetch-random"
-        onClick={() => {
-          const numbers = [];
-          function randomNumber() {
-            const random = Math.floor(Math.random() * randomUsers.length) + 1;
-            if (!numbers.includes(randomNumber)) {
-              numbers.push(random);
-            } else {
-              randomNumber();
-            }
-          }
-
-          if (numbers.length >= randomUsers.length) {
-            fetchRandomUser().then((response) => {
-              setRandomUsers(response);
-            });
-          }
-
-          randomNumber();
-
-          setLoading(true);
-          fetchData(randomUsers[numbers[numbers.length - 1]].login).then(
-            (response) => {
-              setData(response);
-              setLoading(false);
-            }
-          );
-        }}
-      >
-        Fetch Random Profile
-      </button> */}
-      {loading ? <LoadingProfileCard /> : <ProfileCard />}
-    </>
-  );
+  const { loading, error } = useShared();
+  if (error.isError) {
+    return <p>{error.message}</p>;
+  }
+  return <>{loading ? <LoadingProfileCard /> : <ProfileCard />}</>;
 };
 
 export default HomePage;

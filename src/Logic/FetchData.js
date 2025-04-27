@@ -13,36 +13,21 @@ export default async function fetchData(userInput) {
     url += `oluwabillionz96`;
   }
 
-  try {
-    const response = await axios.get(url, { headers });
-    if (!response.status === 200) {
-      throw new Error();
-    }
-    const data = response.data;
-    return data;
-  } catch (err) {
-    console.error(err);
-
-    console.log("Rate Limit:", response.headers["x-ratelimit-limit"]);
-    console.log("Remaining:", response.headers["x-ratelimit-remaining"]);
-    console.log(
-      "Reset At:",
-      new Date(response.headers["x-ratelimit-reset"] * 1000)
-    );
+  const response = await axios.get(url, { headers });
+  if (!response.status === 200) {
+    throw new Error();
   }
+  const data = response.data;
+  return data;
 }
 
 export async function fetchRandomUser() {
-  try {
-    const response = await axios.get(
-      "https://api.github.com/users?per_page=100"
-    );
+  const response = await axios.get("https://api.github.com/users?per_page=100");
 
-    if (!response.status === 200) {
-      throw new Error();
-    }
+  if (!response.status === 200) {
+    throw new Error();
+  }
 
-    const data = response.data;
-    return data;
-  } catch (error) {}
+  const data = response.data;
+  return data;
 }
