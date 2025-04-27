@@ -1,7 +1,31 @@
 @import "tailwindcss";
 
 @layer components {
+  .repositories-container {
+    @apply flex flex-col gap-6 my-8 list-none;
+  }
+
   .repository-card {
-    @apply w-[100%] h-16 bg-[#F6F8FA];
+    @apply w-[100%] h-[fit-content] p-4 bg-[#F6F8FA] flex flex-col gap-4;
+  }
+
+  .repository-card h2 {
+    @apply text-2xl font-bold;
+  }
+
+  .repository-card .desc {
+    @apply text-[1.1rem];
+  }
+
+  .language {
+    @apply text-[0.9rem] border-[1px] w-17 p-2 rounded-[10px];
+  }
+
+  .repository-card footer {
+    @apply flex  gap-5;
+  }
+
+  .repository-card footer button {
+    @apply border-[1px] h-[100%] px-2 rounded-[10px];
   }
 }
