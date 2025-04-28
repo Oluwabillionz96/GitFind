@@ -34,8 +34,12 @@ const Sidebar = () => {
             label: "Repositories",
           },
           {
-            key: "3",
-            icon: <SlUserFollow />,
+            key: "/followers",
+            icon: (
+              <Link to={"/followers"}>
+                <SlUserFollow />
+              </Link>
+            ),
             label: "Followers",
           },
           {

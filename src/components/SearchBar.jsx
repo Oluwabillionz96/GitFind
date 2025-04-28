@@ -51,6 +51,7 @@ const SearchBar = () => {
                     isError: true,
                     message: err.message,
                   });
+                  console.log(err);
                 })
                 .finally(() => {
                   setLoading(false);

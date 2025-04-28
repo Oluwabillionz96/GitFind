@@ -2,7 +2,7 @@ import Linkify from "linkify-react";
 import { RiGitRepositoryLine, RiUserFollowLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
 import { useShared } from "./SharedContext";
-
+import { Link } from "react-router-dom";
 const Bio = () => {
   const { data } = useShared();
 
@@ -34,10 +34,12 @@ export const Details = () => {
           <p className="text">{data?.followers} Followers</p>
         </div>
         <div className="repositories">
-          <div className="icon">
-            <RiGitRepositoryLine />
-          </div>
-          <p className="text">{data?.public_repos} Repositories</p>
+          <Link to={"/repositories"}>
+            <div className="icon">
+              <RiGitRepositoryLine />
+            </div>
+            <p className="text">{data?.public_repos} Repositories</p>
+          </Link>
         </div>
       </div>
     </div>

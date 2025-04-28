@@ -10,7 +10,7 @@ const RepositoryCard = ({ name, language, desc, url }) => {
         <Linkify> {desc}</Linkify>
       </p>
       <footer>
-        <p className="language">{language}</p>
+        {language && <p className="language">{language}</p>}
         <Link to={url}>
           <button>Visit Repository</button>
         </Link>

@@ -22,7 +22,13 @@ export default async function fetchData(userInput) {
 }
 
 export async function fetchRandomUser() {
-  const response = await axios.get("https://api.github.com/users?per_page=100");
+  const headers = {
+    Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+  };
+  const response = await axios.get(
+    "https://api.github.com/users?per_page=100",
+    { headers }
+  );
 
   if (!response.status === 200) {
     throw new Error();

@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer components {
+  .loading-repositories-container {
+    @apply bg-[#B3B9BF]  p-4 animate-pulse;
+  }
+
+  .loading-repositories-container .button-containers {
+    @apply flex justify-evenly my-8 bg-[#7F8993];
+  }
+
+  .loading-repositories-container .button-containers .length {
+    @apply w-18 h-8 border-[#7F8993] bg-[#F6F8FA];
+  }
+
+  .loading-repositories-container .button-containers .length:nth-child(1) {
+    @apply w-20;
+  }
+
+  .repositories-container {
+    @apply flex flex-col my-8;
+  }
+
+  .repositories-container button {
+    @apply bg-[#F6F8FA] text-[#f6f8fa];
+  }
+}
