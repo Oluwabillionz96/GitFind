@@ -19,7 +19,7 @@ const RepositoriesPage = () => {
     const fetchRepositories = async () => {
       try {
         setLoading(true);
-        setAllRepositories([]);
+        setAllRepositories([]); //Clear all repositories before resetting it with the data coming from the api
         const perPage = 100;
         const totalPages = Math.ceil(data?.public_repos / perPage);
         let allRepos = [];
@@ -51,6 +51,8 @@ const RepositoriesPage = () => {
           .filter((language) => language !== null)
       ),
     ];
+
+    //The constructoe function new Set is used to wrap in an array with a spread operator is used to avoid repetition of languages;
 
     unqiueLanguages.unshift("All");
 
