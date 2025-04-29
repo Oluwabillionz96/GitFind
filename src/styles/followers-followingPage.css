@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer component {
+  .followers-container {
+    @apply flex flex-col gap-8 my-8;
+  }
+
+  .followers-container li {
+    @apply p-2 bg-[#F6F8FA];
+  }
+
+  .card {
+    @apply flex gap-4 flex-col;
+  }
+
+  .card img {
+    @apply w-20 rounded-full h-20 border-[1px];
+  }
+
+  .card .card-container {
+    @apply flex  items-center gap-24;
+  }
+
+  .card .name {
+    @apply text-[1.1rem];
+  }
+
+  .card .view-profile button {
+    @apply p-2 border-[1px] border-blue-400 rounded-[9px] text-blue-400 w-[100%];
+  }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useShared } from "../components/SharedContext";
 import { fetchItems } from "../Logic/FetchItems";
 import Card from "../components/Card";
+import "../styles/followers-followingPage.css";
 
 const FollowersPage = () => {
   const { data, loading, setLoading, error, setError } = useShared();
@@ -44,12 +45,12 @@ const FollowersPage = () => {
       {loading ? (
         <p>Loading...</p>
       ) : error.isError ? (
-        <p>Error</p>
+        <p>{error.message}</p>
       ) : (
         <ul className="followers-container">
           {followers?.map((follower) => (
             <li key={follower?.id}>
-              <Card data={follower} date={date} main />
+              <Card data={follower} date={date} main={true} />
             </li>
           ))}
         </ul>
