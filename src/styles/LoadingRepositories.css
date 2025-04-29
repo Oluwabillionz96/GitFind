@@ -21,7 +21,7 @@
     @apply flex flex-col my-8;
   }
 
-  .repositories-container button {
+  .loading-repositories-container .repositories-container button {
     @apply bg-[#F6F8FA] text-[#f6f8fa];
   }
 }

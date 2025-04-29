@@ -23,7 +23,7 @@
   }
 
   .header {
-    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-[#F6F8FA];
+    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-[#F6F8FA] fixed top-0 left-0 right-0 z-15;
   }
 
   .content h1 {
@@ -35,7 +35,7 @@
   }
 
   .sidebar {
-    @apply w-[50%] h-[100%] animate-slide-in absolute top-0 left-0 z-20;
+    @apply w-[50%] h-[100%] animate-slide-in fixed top-[16%] left-0 z-20;
   }
 
   .menu {
@@ -47,7 +47,7 @@
   }
 
   .content {
-    @apply h-[100%] bg-[#fff] relative;
+    @apply h-[100%] bg-[#fff] relative top-[16vh];
   }
 
   .input-container {

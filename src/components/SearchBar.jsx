@@ -3,6 +3,7 @@ import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
 import fetchData, { fetchRandomUser } from "../Logic/FetchData";
 import { Link } from "react-router-dom";
+import Card from "./Card";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
@@ -121,19 +122,7 @@ const SearchBar = () => {
       ) : error.isError ? (
         ""
       ) : (
-        <div className="name-and-profile-image-section">
-          <div className="image-container">
-            <img src={data?.avatar_url} alt={`${data?.name}'s profile photo`} />
-          </div>
-          <div className="name-container">
-            <h2>{data?.name}</h2>
-            <Link to={data?.html_url} target="_blank">
-              <p className="username"> @{data?.login}</p>
-            </Link>
-
-            <p className="date-Joined">Joined {data?.created_at && date}</p>
-          </div>
-        </div>
+        <Card data={data} date={date} />
       )}
     </>
   );

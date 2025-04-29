@@ -126,38 +126,41 @@ const RepositoriesPage = () => {
           </li>
         ))}
       </ul>
-      <div className="button-container">
-        <button
-          className="prev"
-          onClick={() => {
-            setCurrentPage((prev) => {
-              return Math.max(prev - 1, 1);
-            });
-          }}
-          disabled={currentPage === 1}
-        >
-          <FaArrowLeft />
-        </button>
-        <button
-          className="next"
-          onClick={() => {
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth",
-            });
-            setCurrentPage((prev) =>
-              prev < Math.ceil(repositories.length / repositoriesPerPage)
-                ? prev + 1
-                : prev
-            );
-          }}
-          disabled={
-            currentPage === Math.ceil(repositories.length / repositoriesPerPage)
-          }
-        >
-          <FaArrowRight />
-        </button>
-      </div>
+      {Math.ceil(repositories.length / repositoriesPerPage) > 1 && (
+        <div className="button-container">
+          <button
+            className="prev"
+            onClick={() => {
+              setCurrentPage((prev) => {
+                return Math.max(prev - 1, 1);
+              });
+            }}
+            disabled={currentPage === 1}
+          >
+            <FaArrowLeft />
+          </button>
+          <button
+            className="next"
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+              setCurrentPage((prev) =>
+                prev < Math.ceil(repositories.length / repositoriesPerPage)
+                  ? prev + 1
+                  : prev
+              );
+            }}
+            disabled={
+              currentPage ===
+              Math.ceil(repositories.length / repositoriesPerPage)
+            }
+          >
+            <FaArrowRight />
+          </button>
+        </div>
+      )}
     </>
   );
 };
