@@ -2,26 +2,13 @@ import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
 import fetchData, { fetchRandomUser } from "../Logic/FetchData";
-import { Link } from "react-router-dom";
-import Card from "./Card";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
-  const {
-    setLoading,
-    setData,
-    data,
-    loading,
-    randomUsers,
-    setRandomUsers,
-    error,
-    setError,
-  } = useShared();
-
-  let date = new Date(data?.created_at);
-  date = date.toDateString().split(" ");
-  date = date.splice(1, date.length - 1);
-  date = `${date.slice(0, 1)} ${date.slice(2, 3)}`;
+  const navigate = useNavigate();
+  const { setLoading, setData, randomUsers, setRandomUsers, error, setError } =
+    useShared();
 
   return (
     <>
@@ -44,6 +31,7 @@ const SearchBar = () => {
               fetchData(userInput)
                 .then((response) => {
                   setData(response);
+                  navigate(`/${userInput.trim()}`);
                   setUserInput("");
                 })
                 .catch((err) => {
@@ -95,6 +83,7 @@ const SearchBar = () => {
             fetchData(userName)
               .then((response) => {
                 setData(response);
+                navigate(`/${userName}`);
               })
               .catch((err) => {
                 console.log(err);
@@ -107,23 +96,6 @@ const SearchBar = () => {
       >
         Fetch Random Profile
       </button>
-
-      {loading ? (
-        <div className="loading-profile-container ">
-          <div className="name-and-profile-image-section">
-            <div className="image-container"></div>
-            <div className="name-container">
-              <h2></h2>
-              <p className="username"> </p>
-              <p className="date-Joined"></p>
-            </div>
-          </div>
-        </div>
-      ) : error.isError ? (
-        ""
-      ) : (
-        <Card data={data} date={date} />
-      )}
     </>
   );
 };
