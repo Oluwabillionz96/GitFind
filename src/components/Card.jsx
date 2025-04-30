@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ data, date, main }) => {
+const Card = ({ data, date, main, handleClick }) => {
   return (
     <>
       {!main ? (
@@ -28,7 +28,7 @@ const Card = ({ data, date, main }) => {
             />
           </div>
           <div className="view-profile">
-            <button>View Profile</button>
+            <button onClick={handleClick}>View Profile</button>
           </div>
         </div>
       )}

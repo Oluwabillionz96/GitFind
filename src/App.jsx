@@ -3,6 +3,7 @@ import RootLayout from "./layouts/RootLayout";
 import HomePage from "./pages/HomePage";
 import RepositoriesPage from "./pages/RepositoriesPage";
 import FollowersPage from "./pages/FollowersPage";
+import FollowingPage from "./pages/FollowingPage";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/repositories" element={<RepositoriesPage />} />
           <Route path="/followers" element={<FollowersPage />} />
+          <Route path="/following" element={<FollowingPage />} />
         </Route>
       </Routes>
     </>

@@ -3,12 +3,12 @@ import { RiGitRepositoryLine, RiUserFollowLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
 import { useShared } from "./SharedContext";
 import { Link } from "react-router-dom";
-const Bio = () => {
+const Bio = ({ bio }) => {
   const { data } = useShared();
 
   return (
     <div className="bio">
-      <Linkify>{data?.bio || "Account doesn't have a bio."}</Linkify>
+      <Linkify>{bio || data?.bio || "Account doesn't have a bio."}</Linkify>
     </div>
   );
 };
@@ -28,10 +28,12 @@ export const Details = () => {
           <p className="text">{data?.following} Following</p>
         </div>
         <div className="followers">
-          <div className="icon">
-            <SlUserFollow />
-          </div>
-          <p className="text">{data?.followers} Followers</p>
+          <Link to={"/followers"}>
+            <div className="icon">
+              <SlUserFollow />
+            </div>
+            <p className="text">{data?.followers} Followers</p>
+          </Link>
         </div>
         <div className="repositories">
           <Link to={"/repositories"}>

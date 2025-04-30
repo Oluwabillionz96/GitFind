@@ -6,7 +6,7 @@
   }
 
   .followers-container li {
-    @apply p-2 bg-[#F6F8FA];
+    @apply p-4 bg-[#F6F8FA];
   }
 
   .card {
@@ -18,7 +18,7 @@
   }
 
   .card .card-container {
-    @apply flex  items-center gap-24;
+    @apply flex  items-center justify-between;
   }
 
   .card .name {

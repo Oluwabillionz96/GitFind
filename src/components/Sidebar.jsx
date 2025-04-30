@@ -43,8 +43,8 @@ const Sidebar = () => {
             label: "Followers",
           },
           {
-            key: "4",
-            icon: <RiUserFollowLine />,
+            key: "/following",
+            icon: <Link to={"/following"} children={<RiUserFollowLine />} />,
             label: "Following",
           },
           {

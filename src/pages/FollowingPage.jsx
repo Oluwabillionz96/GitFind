@@ -1,15 +1,14 @@
 import FollowersAndFollowing from "../components/FollowersAndFollowing";
 import { useShared } from "../components/SharedContext";
-import "../styles/followers-followingPage.css";
 
-const FollowersPage = () => {
+const FollowingPage = () => {
   const { data } = useShared();
   return (
     <FollowersAndFollowing
-      follow_url={data?.followers_url}
-      followNumber={data?.followers}
+      follow_url={`https://api.github.com/users/${data?.login}/following`}
+      followNumber={data?.following}
     />
   );
 };
 
-export default FollowersPage;
+export default FollowingPage;
