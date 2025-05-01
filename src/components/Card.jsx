@@ -28,7 +28,9 @@ const Card = ({ data, date, main, handleClick }) => {
             />
           </div>
           <div className="view-profile">
-            <button onClick={handleClick}>View Profile</button>
+            <Link to={data?.html_url} target="_blank">
+              <button>View Profile</button>
+            </Link>
           </div>
         </div>
       )}

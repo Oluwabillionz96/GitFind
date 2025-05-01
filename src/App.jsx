@@ -12,10 +12,7 @@ const App = () => {
     <>
       <Routes>
         <Route element={<RootLayout />}>
-          <Route path="/" element={<HomePage />}>
-            <Route index element={<MyProfile />} />
-            <Route path="/:login" element={<ProfileCard />} />
-          </Route>
+          <Route path="/" element={<HomePage />} />
           <Route path="/repositories" element={<RepositoriesPage />} />
           <Route path="/followers" element={<FollowersPage />} />
           <Route path="/following" element={<FollowingPage />} />

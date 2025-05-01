@@ -2,13 +2,21 @@ import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
 import fetchData, { fetchRandomUser } from "../Logic/FetchData";
-import { useNavigate } from "react-router-dom";
+import LoadingProfileCard from "./LoadingProfileCard";
+import TopProfileCard from "./TopProfileCard";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
-  const navigate = useNavigate();
-  const { setLoading, setData, randomUsers, setRandomUsers, error, setError } =
-    useShared();
+  const {
+    setLoading,
+    data,
+    setData,
+    randomUsers,
+    setRandomUsers,
+    error,
+    setError,
+    loading,
+  } = useShared();
 
   return (
     <>
@@ -31,7 +39,6 @@ const SearchBar = () => {
               fetchData(userInput)
                 .then((response) => {
                   setData(response);
-                  navigate(`/${userInput.trim()}`);
                   setUserInput("");
                 })
                 .catch((err) => {
@@ -83,7 +90,6 @@ const SearchBar = () => {
             fetchData(userName)
               .then((response) => {
                 setData(response);
-                navigate(`/${userName}`);
               })
               .catch((err) => {
                 console.log(err);
@@ -96,6 +102,23 @@ const SearchBar = () => {
       >
         Fetch Random Profile
       </button>
+      {loading ? (
+        <>
+          <div className="loading-profile-container ">
+            <div className="name-and-profile-image-section">
+              <div className="image-container"></div>
+              <div className="name-container">
+                <h2></h2>
+                <p className="username"> </p>
+                <p className="date-Joined"></p>
+              </div>
+            </div>
+          </div>
+          <LoadingProfileCard />
+        </>
+      ) : (
+        <TopProfileCard data={data} />
+      )}
     </>
   );
 };
