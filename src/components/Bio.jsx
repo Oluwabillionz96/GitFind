@@ -22,10 +22,12 @@ export const Details = () => {
     <div className="details-container">
       <div className="details">
         <div className="following">
-          <div className="icon">
-            <RiUserFollowLine />
-          </div>
-          <p className="text">{data?.following} Following</p>
+          <Link to={"/following"}>
+            <div className="icon">
+              <RiUserFollowLine />
+            </div>{" "}
+            <p className="text">{data?.following} Following</p>
+          </Link>
         </div>
         <div className="followers">
           <Link to={"/followers"}>
