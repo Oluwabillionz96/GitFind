@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Card = ({ data, date, main, handleClick }) => {
+const Card = ({ data, date, main }) => {
   return (
     <>
       {!main ? (

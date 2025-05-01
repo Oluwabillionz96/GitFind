@@ -4,8 +4,6 @@ import HomePage from "./pages/HomePage";
 import RepositoriesPage from "./pages/RepositoriesPage";
 import FollowersPage from "./pages/FollowersPage";
 import FollowingPage from "./pages/FollowingPage";
-import MyProfile from "./components/MyProfile";
-import ProfileCard from "./components/ProfileCard";
 
 const App = () => {
   return (

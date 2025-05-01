@@ -1,7 +1,8 @@
 @import "tailwindcss";
+
 @layer base {
   body {
-    @apply w-[100vw] h-[100%];
+    @apply w-viewport h-viewport;
   }
 
   body > * {
@@ -15,7 +16,7 @@
 
 @layer components {
   .content {
-    @apply h-[100vh] bg-amber-800 p-4;
+    @apply h-viewport bg-amber-800 p-4;
   }
 
   .logo {
@@ -23,7 +24,7 @@
   }
 
   .header {
-    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-[#F6F8FA] fixed top-0 left-0 right-0 z-15;
+    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-primary fixed top-0 left-0 right-0 z-15;
   }
 
   .content h1 {
@@ -35,27 +36,27 @@
   }
 
   .sidebar {
-    @apply w-[50%] h-[100%] animate-slide-in fixed top-[16%] left-0 z-20;
+    @apply w-[50%] h-full animate-slide-in fixed top-[16%] left-0 z-20;
   }
 
   .menu {
-    @apply h-[100%];
+    @apply h-full;
   }
 
   .main-layout {
-    @apply w-[100%] h-[84%];
+    @apply w-full h-[84%];
   }
 
   .content {
-    @apply h-[100%] bg-[#fff] relative top-[16vh];
+    @apply h-full bg-white relative top-[16vh];
   }
 
   .input-container {
-    @apply w-[100%] h-12 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10;
+    @apply w-full h-12 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10;
   }
 
   .input-container > input {
-    @apply w-[100%] h-[100%] border-0 outline-0 pl-3;
+    @apply w-full h-full border-0 outline-0 pl-3;
   }
 
   .input-container > input::placeholder {
@@ -63,16 +64,20 @@
   }
 
   .input-container > button {
-    @apply absolute w-[15%] h-[100%] top-0 right-0 text-white bg-[#001529] text-2xl flex items-center justify-center;
+    @apply absolute w-[15%] h-full top-0 right-0 text-white bg-secondary text-2xl flex items-center justify-center;
   }
 
   .fetch-random {
-    @apply bg-[#001529] text-white h-12 w-[100%] text-center text-[1.1rem] rounded-[0.5rem];
+    @apply bg-secondary text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem];
   }
 }
 
 @theme {
   --animate-slide-in: slide-in 1s 1;
+  --background-color-secondary: #001529;
+  --background-color-primary: #f6f8fa;
+  --width-viewport: 100vw;
+  --height-viewport: 100vh;
 }
 
 @keyframes slide-in {

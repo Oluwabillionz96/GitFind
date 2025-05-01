@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
-import fetchData, { fetchRandomUser } from "../Logic/FetchData";
-import LoadingProfileCard from "./LoadingProfileCard";
+import { fetchRandomUser } from "../Logic/FetchData";
 import TopProfileCard from "./TopProfileCard";
+import { handleDataFetch } from "../Logic/HandleDataFetch";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
@@ -35,23 +35,8 @@ const SearchBar = () => {
         <button
           onClick={() => {
             if (userInput) {
-              setLoading(true);
-              fetchData(userInput)
-                .then((response) => {
-                  setData(response);
-                  setUserInput("");
-                })
-                .catch((err) => {
-                  setError({
-                    ...error,
-                    isError: true,
-                    message: err.message,
-                  });
-                  console.log(err);
-                })
-                .finally(() => {
-                  setLoading(false);
-                });
+              handleDataFetch(userInput, setLoading, setData, setError);
+              setUserInput("");
             } else {
               alert("Input Required");
             }
@@ -87,16 +72,7 @@ const SearchBar = () => {
             setError({ ...error, isError: true, message: "Oops" });
           } else {
             const userName = randomUsers[numbers[numbers.length - 1]].login;
-            fetchData(userName)
-              .then((response) => {
-                setData(response);
-              })
-              .catch((err) => {
-                console.log(err);
-              })
-              .finally(() => {
-                setLoading(false);
-              });
+            handleDataFetch(userName, setLoading, setData, setError);
           }
         }}
       >
@@ -114,9 +90,8 @@ const SearchBar = () => {
               </div>
             </div>
           </div>
-          <LoadingProfileCard />
         </>
-      ) : (
+      ) : error.isError ? null : (
         <TopProfileCard data={data} />
       )}
     </>

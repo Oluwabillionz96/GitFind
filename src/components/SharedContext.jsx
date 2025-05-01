@@ -10,7 +10,7 @@ export const SharedContext = ({ children }) => {
   const [error, setError] = useState({ isError: false, message: "" });
 
   useEffect(() => {
-    fetchData("oluwabillionz96")
+    fetchData()
       .then((response) => {
         setData(response);
       })
