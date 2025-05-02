@@ -20,7 +20,10 @@ const Card = ({ data, date, main }) => {
       ) : (
         <div className="card">
           <div className="card-container">
-            <img src={data.src} alt={`${data?.login}'s profile photo`} />
+            <img
+              src={data?.avatar_url}
+              alt={`${data?.login}'s profile photo`}
+            />
             <Link
               to={data?.html_url}
               target="_blank"

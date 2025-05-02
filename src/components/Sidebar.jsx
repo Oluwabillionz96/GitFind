@@ -31,7 +31,7 @@ const Sidebar = () => {
                 <RiGitRepositoryLine />
               </Link>
             ),
-            label: "Repositories",
+            label: <p>Repositories</p>,
           },
           {
             key: "/followers",
@@ -48,8 +48,8 @@ const Sidebar = () => {
             label: "Following",
           },
           {
-            key: "5",
-            icon: <IoStatsChartSharp />,
+            key: "/stats",
+            icon: <Link to={"/stats"} children={<IoStatsChartSharp />} />,
             label: "Stats",
           },
         ]}

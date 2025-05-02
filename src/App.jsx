@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import RepositoriesPage from "./pages/RepositoriesPage";
 import FollowersPage from "./pages/FollowersPage";
 import FollowingPage from "./pages/FollowingPage";
+import StatsPage from "./pages/StatsPage";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/repositories" element={<RepositoriesPage />} />
           <Route path="/followers" element={<FollowersPage />} />
           <Route path="/following" element={<FollowingPage />} />
+          <Route path="/stats" element={<StatsPage />} />
         </Route>
       </Routes>
     </>

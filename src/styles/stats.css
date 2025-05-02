@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer components {
+  .stats {
+    @apply grid  grid-cols-1 gap-6 my-8;
+  }
+
+  .stats h2 {
+    @apply text-2xl text-center mb-2;
+  }
+
+  .stats div {
+    @apply border-[1px] rounded-[10px] overflow-hidden min-h-40 h-fit;
+  }
+
+  .stats img {
+    @apply m-0 block mx-auto;
+  }
+}

@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply w-viewport h-viewport;
+    @apply w-viewport h-fit;
   }
 
   body > * {
