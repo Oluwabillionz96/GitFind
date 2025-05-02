@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
 import { MdDarkMode } from "react-icons/md";
-import Sidebar from "../components/Sidebar";
+import SidebarMobile, { SideBar } from "../components/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Layout } from "antd";
 import { SharedContext } from "../components/SharedContext";
 import SearchBar from "../components/SearchBar";
 const { Content } = Layout;
 const RootLayout = () => {
-  const [isCollasped, setIsCollasped] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const location = useLocation();
   useEffect(() => {
-    setIsCollasped(true);
+    setIsCollapsed(true);
   }, [location]);
   return (
     <>
@@ -19,24 +19,25 @@ const RootLayout = () => {
         <button
           className="header-buttons"
           onClick={() => {
-            setIsCollasped(!isCollasped);
+            setIsCollapsed(!isCollapsed);
           }}
         >
-          {isCollasped ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
+          {isCollapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
         </button>
         <img
           src="./gitfind-logo.png"
           alt="An animated image of a cat with Binoculars"
           className="logo"
         />
-        <button className="header-buttons" style={{ visibility: "hidden" }}>
-          <MdDarkMode />
-        </button>
       </header>
-
-      <Layout className="main-layout">
+      <SideBar isCollapsed={isCollapsed} />
+      {!isCollapsed && <SidebarMobile />}
+      <Layout
+        className={`main-layout, ${
+          !isCollapsed ? "not-collapsed" : "collapsed"
+        }`}
+      >
         <Content className="content">
-          {!isCollasped && <Sidebar />}
           <SharedContext>
             <SearchBar />
             <Outlet />

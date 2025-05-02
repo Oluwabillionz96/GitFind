@@ -2,7 +2,7 @@
 
 @layer components {
   .repositories-container {
-    @apply flex flex-col gap-6 my-8 list-none;
+    @apply flex flex-col md:flex-row gap-6 my-8 list-none;
   }
 
   .repository-card {

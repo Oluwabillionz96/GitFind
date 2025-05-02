@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --animate-slide-in: slide-in 1s 1;
+  --animate-move-back: move-back 1.1s 1;
+  --animate-move-away: move-away 0.4s 1;
+  --color-secondary: #001529;
+  --color-primary: #f6f8fa;
+}
+
 @layer base {
   body {
-    @apply w-viewport h-fit;
+    @apply w-screen h-fit;
   }
 
   body > * {
@@ -16,24 +24,19 @@
 
 @layer components {
   .content {
-    @apply h-viewport bg-amber-800 p-4;
+    @apply h-screen p-4;
   }
 
   .logo {
-    @apply w-[25%];
+    @apply w-[25%] md:w-[12%];
   }
 
-  .header,
-  .dark-header {
+  .header {
     @apply flex gap-[2rem] items-center justify-around h-[16%] bg-primary fixed top-0 left-0 right-0 z-15;
   }
 
-  .dark-header {
-    @apply bg-[#010409] text-white;
-  }
-
   .content h1 {
-    @apply text-3xl font-bold;
+    @apply text-3xl md:text-6xl font-bold;
   }
 
   .header-buttons {
@@ -41,7 +44,19 @@
   }
 
   .sidebar {
-    @apply w-[50%] h-full animate-slide-in fixed top-[16%] left-0 z-20;
+    @apply w-[50%] h-full animate-slide-in fixed top-[16%] left-0 z-20 md:hidden;
+  }
+
+  .none {
+    @apply hidden md:block;
+  }
+
+  .not-collapsed {
+    @apply md:md:w-[75%] md:ml-[25%] md:animate-move-away;
+  }
+
+  .collapsed {
+    @apply md:w-[90%] md:ml-[10%] md:animate-move-back;
   }
 
   .menu {
@@ -57,15 +72,15 @@
   }
 
   .input-container {
-    @apply w-full h-12 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10;
+    @apply w-full h-12 md:h-15 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10;
   }
 
   .input-container > input {
-    @apply w-full h-full border-0 outline-0 pl-3;
+    @apply w-full h-full border-0 outline-0 pl-3 md:text-2xl;
   }
 
   .input-container > input::placeholder {
-    @apply text-[0.9rem];
+    @apply text-[0.9rem] md:text-[1.2rem];
   }
 
   .input-container > button {
@@ -73,16 +88,8 @@
   }
 
   .fetch-random {
-    @apply bg-secondary text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem];
+    @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem];
   }
-}
-
-@theme {
-  --animate-slide-in: slide-in 1s 1;
-  --background-color-secondary: #001529;
-  --background-color-primary: #f6f8fa;
-  --width-viewport: 100vw;
-  --height-viewport: 100vh;
 }
 
 @keyframes slide-in {
@@ -91,5 +98,27 @@
   }
   to {
     left: 0;
+  }
+}
+
+@keyframes move-back {
+  from {
+    width: 75%;
+    margin-left: 25%;
+  }
+  to {
+    width: 90%;
+    margin-left: 10%;
+  }
+}
+
+@keyframes move-away {
+  from {
+    width: 90%;
+    margin-left: 10%;
+  }
+  to {
+    width: 75%;
+    margin-left: 25%;
   }
 }

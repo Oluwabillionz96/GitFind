@@ -6,11 +6,11 @@
   }
 
   .name-and-profile-image-section {
-    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-8;
+    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-8 md:gap-20;
   }
 
   .name-and-profile-image-section > .image-container {
-    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2;
+    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2 md:w-[30%];
   }
 
   .image-container > img {
@@ -18,35 +18,39 @@
   }
 
   .name-and-profile-image-section > .name-container {
-    @apply w-[60%] flex flex-col items-start justify-center gap-1;
+    @apply w-[60%] flex flex-col items-start  justify-center gap-1;
   }
 
   .name-container > h2 {
-    @apply text-2xl font-medium;
+    @apply text-2xl font-medium md:text-3xl;
   }
 
-  .name-container > .username {
-    @apply text-[0.95rem] text-blue-700;
+  .name-container .username {
+    @apply text-[0.95rem] md:text-[1.2rem];
   }
 
   .date-Joined {
-    @apply text-[1.1rem];
+    @apply text-[1.1rem] md:text-[1.5rem];
   }
 
   .bio {
-    @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words;
+    @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words md:text-[1.5rem];
   }
 
   .details {
-    @apply grid grid-cols-2 gap-y-3 mt-6;
+    @apply grid grid-cols-2 gap-y-3 mt-6 md:grid-cols-3;
   }
 
-  .details > * {
-    @apply flex flex-col items-start text-center gap-1;
+  .details > * > * {
+    @apply flex flex-col items-start text-center gap-1 md:flex-row md:gap-2 md:text-[1.2rem];
+  }
+
+  .details .icon {
+    @apply md:py-1;
   }
 
   .socials {
-    @apply flex flex-col gap-2 bg-[#F6F8FA] p-2;
+    @apply flex flex-col gap-2 bg-[#F6F8FA] p-2 md:text-[1.1rem] md:gap-4;
   }
 
   .socials > * {
@@ -62,10 +66,14 @@
   }
 
   .visit-profile-button {
-    @apply bg-[#f6f8fa] h-12 flex items-center justify-center gap-2 text-[1rem] w-[100%];
+    @apply bg-[#f6f8fa] h-12 md:h-15 flex items-center justify-center gap-2 text-[1rem] w-[100%];
   }
 
   .visit-profile {
     @apply w-[100%];
+  }
+
+  .visit-profile > * {
+    @apply md:text-[1.2rem];
   }
 }

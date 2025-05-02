@@ -6,7 +6,7 @@
   }
 
   .loading-profile-container .name-and-profile-image-section {
-    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-0;
+    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-0 md:gap-20;
   }
 
   .loading-profile-container
@@ -16,11 +16,11 @@
   }
 
   .loading-profile-container .image-container {
-    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2;
+    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2 md:w-[30%];
   }
 
   .loading-profile-container .name-container > h2 {
-    @apply h-6 bg-[#7c8690] w-[100%];
+    @apply h-6 bg-[#7c8690] w-[100%] md:h-7;
   }
 
   .loading-profile-container .name-container > .username {

@@ -5,6 +5,7 @@ import RepositoryCard from "../components/RepositoryCard";
 import DropDown from "../components/DropDown";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import LoadingRepositories from "../components/LoadingRepositories";
+import "../styles/repositoryCard.css";
 
 const RepositoriesPage = () => {
   const { data, loading, setLoading, error, setError } = useShared();
