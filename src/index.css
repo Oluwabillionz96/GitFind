@@ -23,8 +23,13 @@
     @apply w-[25%];
   }
 
-  .header {
+  .header,
+  .dark-header {
     @apply flex gap-[2rem] items-center justify-around h-[16%] bg-primary fixed top-0 left-0 right-0 z-15;
+  }
+
+  .dark-header {
+    @apply bg-[#010409] text-white;
   }
 
   .content h1 {

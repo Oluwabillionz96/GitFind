@@ -29,7 +29,7 @@ const RootLayout = () => {
           alt="An animated image of a cat with Binoculars"
           className="logo"
         />
-        <button className="header-buttons">
+        <button className="header-buttons" style={{ visibility: "hidden" }}>
           <MdDarkMode />
         </button>
       </header>

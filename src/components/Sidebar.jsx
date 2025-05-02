@@ -5,14 +5,14 @@ import { RiGitRepositoryLine, RiUserFollowLine } from "react-icons/ri";
 import { SlUserFollow } from "react-icons/sl";
 import { Link, useLocation } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ isDark }) => {
   const location = useLocation();
   return (
     <aside className="sidebar">
       <Menu
         mode="inline"
         defaultSelectedKeys={[location.pathname]}
-        theme="dark"
+        theme={isDark ? "light" : "dark"}
         className="menu"
         items={[
           {

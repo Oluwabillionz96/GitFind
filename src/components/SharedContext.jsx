@@ -8,6 +8,7 @@ export const SharedContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [randomUsers, setRandomUsers] = useState();
   const [error, setError] = useState({ isError: false, message: "" });
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     fetchData()
@@ -41,6 +42,8 @@ export const SharedContext = ({ children }) => {
         setRandomUsers,
         error,
         setError,
+        isDark,
+        setIsDark,
       }}
     >
       {children}
