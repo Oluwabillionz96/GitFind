@@ -10,7 +10,8 @@ const LoadingRepositories = () => {
         <div className="length"></div>
       </div>
 
-      <div className="repositories-container">
+      <div className="repositories-container2">
+        <RepositoryCard />
         <RepositoryCard />
         <RepositoryCard />
         <RepositoryCard />

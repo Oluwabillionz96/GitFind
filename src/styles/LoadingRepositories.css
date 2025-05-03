@@ -17,8 +17,12 @@
     @apply w-20;
   }
 
-  .repositories-container {
-    @apply flex flex-col my-8;
+  .repositories-container2 {
+    @apply grid grid-cols-1  my-8 gap-6;
+  }
+
+  .repositories-container2 button {
+    @apply hidden;
   }
 
   .loading-repositories-container .repositories-container button {

@@ -2,7 +2,7 @@
 
 @layer component {
   .followers-container {
-    @apply flex flex-col gap-8 my-8;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-8 my-8;
   }
 
   .followers-container li {
