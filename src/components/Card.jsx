@@ -9,12 +9,14 @@ const Card = ({ data, date, main }) => {
             <img src={data?.avatar_url} alt={`${data?.name}'s profile photo`} />
           </div>
           <div className="name-container">
-            <h2>{data?.name}</h2>
+            <h2>{data?.name}Goodluck Reuben</h2>
             <Link to={data?.html_url} target="_blank">
-              <p className="username"> @{data?.login}</p>
+              <p className="username"> @{data?.login}oluwabillionz</p>
             </Link>
 
-            <p className="date-Joined">Joined {data?.created_at && date}</p>
+            <p className="date-Joined">
+              Joined {data?.created_at && date} July 2024
+            </p>
           </div>
         </div>
       ) : (

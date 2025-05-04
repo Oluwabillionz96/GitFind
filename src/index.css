@@ -2,8 +2,8 @@
 
 @theme {
   --animate-slide-in: slide-in 1s 1;
-  --animate-move-back: move-back 1.1s 1;
-  --animate-move-back-large: move-back-large 1.1s 1;
+  --animate-move-back: move-back 1s 1;
+  --animate-move-back-large: move-back-large 1s 1;
   --animate-move-away: move-away 0.4s 1;
   --animate-move-away-large: move-away-large 0.4s 1;
   --color-secondary: #001529;
@@ -12,7 +12,7 @@
 
 @layer base {
   body {
-    @apply w-screen h-fit overflow-x-hidden;
+    @apply max-w-[1440px] block mx-auto h-fit overflow-x-hidden;
   }
 
   body > * {
@@ -38,7 +38,7 @@
   }
 
   .content h1 {
-    @apply text-3xl md:text-6xl font-bold lg:text-7xl  lg:fixed lg:z-50 lg:top-4 lg:left-[38%];
+    @apply text-3xl md:text-6xl font-bold lg:text-8xl lg:my-8;
   }
 
   .header-buttons {
@@ -54,7 +54,7 @@
   }
 
   .not-collapsed {
-    @apply md:w-[75%] md:ml-[25%] md:animate-move-away lg:animate-move-away-large lg:w-[86%] lg:ml-[14%];
+    @apply md:w-[75%] md:ml-[25%] md:animate-move-away lg:animate-move-away-large lg:w-[80%] lg:ml-[20%];
   }
 
   .collapsed {
@@ -90,7 +90,7 @@
   }
 
   .fetch-random {
-    @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem] lg:absolute lg:top-[2rem] lg:w-[15%] lg:right-10;
+    @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem] lg:absolute lg:top-[11rem] lg:w-[15%] lg:right-8;
   }
 }
 
@@ -116,8 +116,8 @@
 
 @keyframes move-back-large {
   from {
-    width: 86%;
-    margin-left: 14%;
+    width: 80%;
+    margin-left: 20%;
   }
   to {
     width: 93%;
@@ -142,7 +142,7 @@
     margin-left: 7%;
   }
   to {
-    width: 86%;
-    margin-left: 14%;
+    width: 80%;
+    margin-left: 20%;
   }
 }

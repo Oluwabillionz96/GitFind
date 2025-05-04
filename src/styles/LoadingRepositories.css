@@ -10,7 +10,7 @@
   }
 
   .loading-repositories-container .button-containers .length {
-    @apply w-18 h-8 border-[#7F8993] bg-[#F6F8FA];
+    @apply w-18 h-8 border-[#7F8993] bg-[#F6F8FA] lg:h-10;
   }
 
   .loading-repositories-container .button-containers .length:nth-child(1) {
@@ -19,6 +19,10 @@
 
   .repositories-container2 {
     @apply grid grid-cols-1  my-8 gap-6;
+  }
+
+  .repositories-container2 > .repository-card {
+    @apply lg:h-40;
   }
 
   .repositories-container2 button {
