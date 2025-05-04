@@ -14,7 +14,7 @@
   }
 
   .repository-card .desc {
-    @apply text-[1.1rem];
+    @apply text-[1.1rem] lg:w-[80%];
   }
 
   .language {
