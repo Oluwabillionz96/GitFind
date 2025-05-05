@@ -35,7 +35,7 @@ const SearchBar = () => {
         <button
           onClick={() => {
             if (userInput) {
-              handleDataFetch(userInput, setLoading, setData, setError);
+              handleDataFetch(userInput.trim(), setLoading, setData, setError);
               setUserInput("");
             } else {
               alert("Input Required");

@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .loading-followers-and-following-container {
+    @apply grid grid-cols-1 md:grid-cols-2  gap-4;
+  }
+
+  .loading-followers-and-following-container > div {
+    @apply h-25 bg-[#F6F8FA] md:h-30 lg:h-50;
+  }
+}

@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import { useShared } from "./SharedContext";
 import { fetchItems } from "../Logic/FetchItems";
 import Card from "./Card";
-import { useNavigate } from "react-router-dom";
-import fetchData from "../Logic/FetchData";
+import FollowersAndFollowingLoading from "./FollowersAndFollowingLoading";
 
 const FollowersAndFollowing = ({ follow_url, followNumber }) => {
-  const { data, loading, setLoading, error, setError, setData } = useShared();
+  const { data, loading, setLoading, error, setError} = useShared();
   const [follow, setFollow] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!follow_url) return;
@@ -45,30 +43,14 @@ const FollowersAndFollowing = ({ follow_url, followNumber }) => {
   return (
     <>
       {loading ? (
-        <p>Loading</p>
+        <FollowersAndFollowingLoading />
       ) : error.isError ? (
         <p>{error.message}</p>
       ) : (
         <ul className="followers-container">
           {follow?.map((followData) => (
             <li key={followData?.id}>
-              <Card
-                data={followData}
-                date={date}
-                main={true}
-                handleClick={() => {
-                  setLoading(true);
-                  navigate("/");
-                  fetchData(followData?.login)
-                    .then((response) => setData(response))
-                    .catch((err) =>
-                      setError({ isError: true, message: err.message })
-                    )
-                    .finally(() => {
-                      setLoading(false);
-                    });
-                }}
-              />
+              <Card data={followData} date={date} main={true} />
             </li>
           ))}
         </ul>
