@@ -25,7 +25,6 @@ Live site: _Coming soon_
 - [x] Resposive Design (mobile/ tablet support)
 
 ## Screenshots
-
 _Comming Soon_
 
 ## Tech Stack
@@ -46,13 +45,19 @@ https://github.com/Oluwabillionz96/github-profile-finder.git
 ```
 
 2. Install dependencies
-`bash npm install `
+```bash 
+npm install
+```
 
 3. Create a .env file and add your Github token
-```bash VITE_GITHUB_TOKEN  = your_github_token_here```
+```bash 
+VITE_GITHUB_TOKEN  = your_github_token_here
+```
 
 4. Run the development server
-```bash npm run dev```
+``` bash 
+npm run dev
+```
 
 5. Open in browser at the given port.
 
