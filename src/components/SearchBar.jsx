@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { useShared } from "./SharedContext";
 import { fetchRandomUser } from "../Logic/FetchData";
@@ -7,6 +7,8 @@ import { handleDataFetch } from "../Logic/HandleDataFetch";
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState("");
+  const [errordisplay, setErrorDisplay] = useState([]);
+  let errorId = useRef(0);
   const {
     setLoading,
     data,
@@ -20,6 +22,11 @@ const SearchBar = () => {
 
   return (
     <>
+      <div className="displayed-error-container">
+        {errordisplay.map((err) => (
+          <div key={err.id}>{err.text}</div>
+        ))}
+      </div>
       <h1>GitFind</h1>
       <div className="input-container">
         <input
@@ -34,11 +41,24 @@ const SearchBar = () => {
         />
         <button
           onClick={() => {
-            if (userInput) {
+            if (!userInput) {
+              const id = ++errorId.current;
+              const newError = {
+                id,
+                text: "Search Input Is required!",
+              };
+
+              setErrorDisplay((prev) => [...prev, newError]);
+
+              setTimeout(() => {
+                setErrorDisplay((prev) =>
+                  prev.filter((error) => error.id !== id)
+                );
+              }, 5000);
+            } else {
               handleDataFetch(userInput.trim(), setLoading, setData, setError);
               setUserInput("");
-            } else {
-              alert("Input Required");
+              setErrorDisplay([]);
             }
           }}
         >

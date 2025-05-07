@@ -1,6 +1,6 @@
 # GitFind
 
-GitFind is a React-Based Github profile finder web application. It allows it's users to search for **any Github profile** by entering a **valid Github username** in the search input and clicking the Search button to search or **see a random Github profile** by clicking on the "Fetch Random Profile" button. On page load, the website displays its **builder's Github Profile**.
+GitFind is a React-Based Github profile finder web application that allows it's users to search for **any Github profile** by entering a **valid Github username** in the search input and clicking the Search button to search or **see a random Github profile** by clicking on the "Fetch Random Profile" button. On page load, the website displays its **builder's Github Profile**.
 
 ## Table of Contents
 
@@ -68,14 +68,16 @@ npm run dev
 
 - The Github profile searched or the random one generated will replace the builder's profile which was initially displayed on the page.
 
--  Navigate to other pages using the toggleable side bar on the left. The sidebar is toggled by the button in the to left side of the header.
+-  Navigate to other pages using the toggleable side bar on the left. The sidebar is toggled by a button in the top left side of the header.
 
 -  View all the public Repositories on the Repositories page only viewing **20 Repositories at a time**.
 
 -  To view the rest of the Repositories, there is a navigation button at the buttom of the Repositories page that shows the next set of 20 Repositories when clicked
 
-- There is a Dropdown menu just below the profile card on the  Repositories page for filtering Repositories based on languages.
+- There is a Dropdown menu just below the profile card on the  Repositories page for filtering Repositories based on languages. There is also a button to show the index of repository page you are on.
 
 - All Followers and Following can be viewed by navigating to their respective pages through the sidebar.
 
-- Profile Statistics like: Most used languages and overall profile stats can be seen by navigating to the stats page.
+- The **View Profile Button** on each follower's or following's card takes a user to their Github Profile on [Github](https://github.com)
+
+- Profile Statistics like: Most used languages,overall profile stats and a graph to show how often a user Interacts with Github can be seen by navigating to the stats page.

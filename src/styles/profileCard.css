@@ -17,8 +17,16 @@
     @apply w-[100%] h-[100%];
   }
 
+  .displayed-error-container {
+    @apply w-[50%] absolute top-8 left-0 flex flex-col gap-4 z-50 justify-end left-[25%];
+  }
+
+  .displayed-error-container > div {
+    @apply w-[100%] md:w-[50%] lg:w-[30%] mx-auto text-[1rem] h-12 rounded-[10px] flex items-center justify-center bg-red-500 text-white p-4 text-center;
+  }
+
   .name-and-profile-image-section > .name-container {
-    @apply w-[60%] flex flex-col items-start  justify-center gap-1 lg:items-center lg:w-[50%] lg:gap-4;
+    @apply w-[50%] flex flex-col items-start  justify-center gap-1 lg:items-center lg:w-[50%] lg:gap-4;
   }
 
   .name-and-profile-image-section > .name-container > * {
