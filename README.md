@@ -88,6 +88,4 @@ npm run dev
 
 Here area list of [Github](https;//github.com) API EndPoints Used.
 
- 1. ```js
-https://api.github.com/users/<username>
-```
+ 1. ``` https://api.github.com/users/```
