@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import fetchData, { fetchRandomUser } from "../Logic/FetchData";
 
 const DataContext = createContext();
+export const ThemeContext = createContext();
 
 export const SharedContext = ({ children }) => {
   const [data, setData] = useState();
@@ -51,6 +52,17 @@ export const SharedContext = ({ children }) => {
   );
 };
 
+export const Theme = ({ children }) => {
+  const [isDark, setIsDark] = useState(false);
+  return (
+    <ThemeContext.Provider value={{ isDark , setIsDark}}>{children}</ThemeContext.Provider>
+  );
+};
+
 export function useShared() {
   return useContext(DataContext);
+}
+
+export function useTheme() {
+  return useContext(ThemeContext)
 }

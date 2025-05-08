@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { AiOutlineMenuFold, AiOutlineMenuUnfold } from "react-icons/ai";
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import SidebarMobile, { SideBar } from "../components/Sidebar";
 import { Outlet, useLocation } from "react-router-dom";
 import { Layout } from "antd";
-import { SharedContext } from "../components/SharedContext";
+import { SharedContext, useTheme } from "../components/SharedContext";
 import SearchBar from "../components/SearchBar";
 const { Content } = Layout;
 const RootLayout = () => {
@@ -13,9 +13,12 @@ const RootLayout = () => {
   useEffect(() => {
     setIsCollapsed(true);
   }, [location]);
+
+  const { isDark, setIsDark } = useTheme();
+
   return (
     <>
-      <header className="header">
+      <header className={`header ${isDark ? "dark-header" : ""}`}>
         <button
           className="header-buttons"
           onClick={() => {
@@ -29,15 +32,24 @@ const RootLayout = () => {
           alt="An animated image of a cat with Binoculars"
           className="logo"
         />
+
+        <button
+          className="header-buttons"
+          onClick={() => {
+            setIsDark(!isDark);
+          }}
+        >
+          {!isDark ? <MdDarkMode /> : <MdLightMode />}
+        </button>
       </header>
-      <SideBar isCollapsed={isCollapsed} />
-      {!isCollapsed && <SidebarMobile />}
+      <SideBar isCollapsed={isCollapsed} dark={isDark} />
+      {!isCollapsed && <SidebarMobile dark={isDark} />}
       <Layout
         className={`main-layout, ${
           !isCollapsed ? "not-collapsed" : "collapsed"
         }`}
       >
-        <Content className="content">
+        <Content className={`content ${isDark ? "dark-content" : ""}`}>
           <SharedContext>
             <SearchBar />
             <Outlet />

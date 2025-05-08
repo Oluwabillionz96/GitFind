@@ -25,16 +25,16 @@
 }
 
 @layer components {
-  .content {
-    @apply h-screen p-4;
-  }
-
   .logo {
     @apply w-[25%] md:w-[12%] lg:w-[7%];
   }
 
   .header {
     @apply flex gap-[2rem] items-center justify-around h-[16%] bg-primary fixed top-0 left-0 right-0 z-15;
+  }
+
+  .dark-header {
+    @apply bg-[#010409] text-white;
   }
 
   .content h1 {
@@ -70,11 +70,23 @@
   }
 
   .content {
-    @apply h-full bg-white relative top-[16vh];
+    @apply h-full bg-white relative top-[16vh] h-screen p-4;
+  }
+
+  .dark-content {
+    @apply bg-[#0D1117];
+  }
+
+  .dark-content h1 {
+    @apply text-white;
   }
 
   .input-container {
     @apply w-full h-12 md:h-15 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10 lg:w-[82%];
+  }
+
+  .dark-content .input-container {
+    @apply border-white;
   }
 
   .input-container > input {
@@ -85,13 +97,23 @@
     @apply text-[0.9rem] md:text-[1.2rem];
   }
 
+  .dark-content .input-container > input::placeholder,
+  .dark-content .input-container > input {
+    @apply text-white;
+  }
+
   .input-container > button {
     @apply absolute w-[15%] h-full top-0 right-0 text-white bg-secondary text-2xl flex items-center justify-center;
+  }
+
+  .dark-content .input-container > button,   .dark-content .fetch-random {
+    @apply text-secondary bg-white;
   }
 
   .fetch-random {
     @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem] lg:absolute lg:top-[11rem] lg:w-[15%] lg:right-8;
   }
+
 }
 
 @keyframes slide-in {

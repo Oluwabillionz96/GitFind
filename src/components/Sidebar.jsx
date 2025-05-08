@@ -7,14 +7,14 @@ import { Link, useLocation } from "react-router-dom";
 
 const { Sider } = Layout;
 
-const SidebarMobile = () => {
+const SidebarMobile = ({ dark }) => {
   const location = useLocation();
   return (
     <aside className="sidebar">
       <Menu
         mode="inline"
         defaultSelectedKeys={[location.pathname]}
-        theme={"dark"}
+        theme={dark ? "dark" : "light"}
         className="menu"
         items={[
           {
@@ -62,7 +62,7 @@ const SidebarMobile = () => {
 
 export default SidebarMobile;
 
-export const SideBar = ({ isCollapsed }) => {
+export const SideBar = ({ isCollapsed, dark }) => {
   return (
     <div className="none">
       <Layout className=" w-fit sidebar">
@@ -70,7 +70,7 @@ export const SideBar = ({ isCollapsed }) => {
           <Menu
             mode="inline"
             defaultSelectedKeys={[location.pathname]}
-            theme={"dark"}
+            theme={dark ? "dark" : "light"}
             className="menu"
             items={[
               {
