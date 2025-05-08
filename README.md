@@ -10,6 +10,7 @@ GitFind is a React-Based Github profile finder web application that allows it's 
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Usage](#usage)
+- [APIs Endpoints Used](#api-enpoints-used)
 
 ## Demo
 
@@ -23,6 +24,7 @@ Live site: _Coming soon_
 - [x] Generate a random Github Profile
 - [x] Filter Repositories based on Languages
 - [x] Resposive Design (mobile/ tablet support)
+- [x] Light/ Dark Theme toggle
 
 ## Screenshots
 _Comming Soon_
@@ -81,3 +83,11 @@ npm run dev
 - The **View Profile Button** on each follower's or following's card takes a user to their Github Profile on [Github](https://github.com)
 
 - Profile Statistics like: Most used languages,overall profile stats and a graph to show how often a user Interacts with Github can be seen by navigating to the stats page.
+
+## API Enpoints Used
+
+Here area list of [Github](https;//github.com) API EndPoints Used.
+
+ 1. ```js
+https://api.github.com/users/<username>
+```
