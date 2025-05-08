@@ -46,7 +46,7 @@
   }
 
   .bio {
-    @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words md:text-[1.5rem];
+    @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words md:text-[1.5rem] md:bg-transparent;
   }
 
   .details {
@@ -62,7 +62,7 @@
   }
 
   .socials {
-    @apply flex flex-col gap-2 bg-[#F6F8FA] p-2 md:text-[1.1rem] md:gap-4;
+    @apply flex flex-col gap-2 bg-[#F6F8FA] p-2 md:text-[1.1rem] md:gap-4 md:bg-transparent;
   }
 
   .socials > * {
@@ -74,7 +74,7 @@
   }
 
   .details-container {
-    @apply bg-[#F6F8FA] px-4 pb-4;
+    @apply bg-[#F6F8FA] px-4 pb-4 md:bg-transparent;
   }
 
   .visit-profile-button {

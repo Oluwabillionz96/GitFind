@@ -22,7 +22,7 @@ const SearchBar = () => {
 
   return (
     <>
-      <div className="displayed-error-container">
+      <div className="displayed-error-container ">
         {errordisplay.map((err) => (
           <div key={err.id}>{err.text}</div>
         ))}
