@@ -11,6 +11,7 @@ GitFind is a React-Based Github profile finder web application that allows it's 
 - [Installation](#installation)
 - [Usage](#usage)
 - [APIs Endpoints Used](#api-enpoints-used)
+- [To Do](#to-do)
 
 ## Demo
 
@@ -99,5 +100,22 @@ Returns a JSON response of a user's profile and other endpoints to get Informati
  https://api.github.com/users?per_page=100 
  ```
 This Endpoint returns a list of 100 random user's profile, which is then selected at random an rendered when the "Fetch Random User" button is clicked.
+
+# To Do
+
+- [ ] Handle Http Errors Properly
+- [ ] Deploy to Netlify
+
+# Contributing
+
+Feel free to fork the repo and submit a pull request. Issues and suggestions are welcome.
+
+# Contact
+
+**Goodluck Reuben**
+X: [@gudluck_reuben](#https://x.com/gudluck_reuben)
+Email: [goodluckreuben6@gmail.com](goodluckreuben96@gmail.com)
+
+
 
 
