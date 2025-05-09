@@ -113,8 +113,8 @@ Feel free to fork the repo and submit a pull request. Issues and suggestions are
 # Contact
 
 **Goodluck Reuben**
-X: [@gudluck_reuben](#https://x.com/gudluck_reuben)
-Email: [goodluckreuben6@gmail.com](goodluckreuben96@gmail.com)
+- X: [@gudluck_reuben](#https://x.com/gudluck_reuben)
+- Email: [goodluckreuben6@gmail.com](goodluckreuben96@gmail.com)
 
 
 
