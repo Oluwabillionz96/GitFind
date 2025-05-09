@@ -28,7 +28,7 @@ const RootLayout = () => {
           {isCollapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
         </button>
         <img
-          src="./gitfind-logo.png"
+          src={isDark ? "./gitfind-logo-light.webp" : "./gitfind-logo.webp"}
           alt="An animated image of a cat with Binoculars"
           className="logo"
         />

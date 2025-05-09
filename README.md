@@ -91,6 +91,8 @@ npm run dev
 
 - Profile Statistics like: Most used languages,overall profile stats and a graph to show how often a user Interacts with Github can be seen by navigating to the stats page.
 
+- Toggle between dark and light mode by clicking on the button at the top right coner of the page.
+
 ## API Enpoints Used
 
 Here are the lists of [Github](https;//github.com) API EndPoints Used.
