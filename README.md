@@ -12,6 +12,8 @@ GitFind is a React-Based Github profile finder web application that allows it's 
 - [Usage](#usage)
 - [APIs Endpoints Used](#api-enpoints-used)
 - [To Do](#to-do)
+- [Contributing](#contributing)
+- [Contact](#contact)
 
 ## Demo
 
@@ -28,6 +30,7 @@ Live site: _Coming soon_
 - [x] Light/ Dark Theme toggle
 
 ## Screenshots
+
 _Comming Soon_
 
 ## Tech Stack
@@ -48,17 +51,20 @@ https://github.com/Oluwabillionz96/github-profile-finder.git
 ```
 
 2. Install dependencies
-```bash 
+
+```bash
 npm install
 ```
 
 3. Create a .env file and add your Github token
-```bash 
+
+```bash
 VITE_GITHUB_TOKEN  = your_github_token_here
 ```
 
 4. Run the development server
-``` bash 
+
+```bash
 npm run dev
 ```
 
@@ -67,17 +73,17 @@ npm run dev
 ## Usage
 
 - On load, the builder's Github profile is shown.
-- Type a valid Github username  (like kaksie-codes) in the search bar or click the 'Fetch Random Profile' button.
+- Type a valid Github username (like kaksie-codes) in the search bar or click the 'Fetch Random Profile' button.
 
 - The Github profile searched or the random one generated will replace the builder's profile which was initially displayed on the page.
 
--  Navigate to other pages using the toggleable side bar on the left. The sidebar is toggled by a button in the top left side of the header.
+- Navigate to other pages using the toggleable side bar on the left. The sidebar is toggled by a button in the top left side of the header.
 
--  View all the public Repositories on the Repositories page only viewing **20 Repositories at a time**.
+- View all the public Repositories on the Repositories page only viewing **20 Repositories at a time**.
 
--  To view the rest of the Repositories, there is a navigation button at the buttom of the Repositories page that shows the next set of 20 Repositories when clicked
+- To view the rest of the Repositories, there is a navigation button at the buttom of the Repositories page that shows the next set of 20 Repositories when clicked
 
-- There is a Dropdown menu just below the profile card on the  Repositories page for filtering Repositories based on languages. There is also a button to show the index of repository page you are on.
+- There is a Dropdown menu just below the profile card on the Repositories page for filtering Repositories based on languages. There is also a button to show the index of repository page you are on.
 
 - All Followers and Following can be viewed by navigating to their respective pages through the sidebar.
 
@@ -90,20 +96,22 @@ npm run dev
 Here are the lists of [Github](https;//github.com) API EndPoints Used.
 
 -
+
 ```bash
  https://api.github.com/users/<username>
- ```
+```
+
 Returns a JSON response of a user's profile and other endpoints to get Information about the user.
 
--
- ```bash
- https://api.github.com/users?per_page=100 
- ```
-This Endpoint returns a list of 100 random user's profile, which is then selected at random an rendered when the "Fetch Random User" button is clicked.
+- ```bash
+  https://api.github.com/users?per_page=100
+  ```
+  This Endpoint returns a list of 100 random user's profile, which is then selected at random an rendered when the "Fetch Random User" button is clicked.
 
 # To Do
 
 - [ ] Handle Http Errors Properly
+- [ ] Add a file and folder structure section to this readme file.
 - [ ] Deploy to Netlify
 
 # Contributing
@@ -113,9 +121,6 @@ Feel free to fork the repo and submit a pull request. Issues and suggestions are
 # Contact
 
 **Goodluck Reuben**
+
 - X: [@gudluck_reuben](#https://x.com/gudluck_reuben)
 - Email: [goodluckreuben6@gmail.com](goodluckreuben96@gmail.com)
-
-
-
-
