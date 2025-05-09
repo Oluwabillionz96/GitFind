@@ -53,7 +53,7 @@ const RepositoriesPage = () => {
       ),
     ];
 
-    //The constructoe function new Set is used to wrap in an array with a spread operator is used to avoid repetition of languages;
+    //The constructor function new Set is used to wrap in an array with a spread operator is used to avoid repetition of languages;
 
     unqiueLanguages.unshift("All");
 

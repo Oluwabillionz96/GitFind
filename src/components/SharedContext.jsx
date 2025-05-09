@@ -9,7 +9,6 @@ export const SharedContext = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [randomUsers, setRandomUsers] = useState();
   const [error, setError] = useState({ isError: false, message: "" });
-  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     fetchData()
@@ -43,8 +42,6 @@ export const SharedContext = ({ children }) => {
         setRandomUsers,
         error,
         setError,
-        isDark,
-        setIsDark,
       }}
     >
       {children}
@@ -53,9 +50,13 @@ export const SharedContext = ({ children }) => {
 };
 
 export const Theme = ({ children }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(
+    JSON.parse(localStorage.getItem("theme")) || false
+  );
   return (
-    <ThemeContext.Provider value={{ isDark , setIsDark}}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ isDark, setIsDark }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };
 
@@ -64,5 +65,5 @@ export function useShared() {
 }
 
 export function useTheme() {
-  return useContext(ThemeContext)
+  return useContext(ThemeContext);
 }

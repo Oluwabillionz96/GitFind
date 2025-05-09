@@ -36,7 +36,8 @@ const RootLayout = () => {
         <button
           className="header-buttons"
           onClick={() => {
-            setIsDark(!isDark);
+            setIsDark((prev) => !prev);
+            localStorage.setItem("theme", !isDark);
           }}
         >
           {!isDark ? <MdDarkMode /> : <MdLightMode />}

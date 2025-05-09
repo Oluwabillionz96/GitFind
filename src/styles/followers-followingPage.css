@@ -9,6 +9,10 @@
     @apply p-4 bg-[#F6F8FA];
   }
 
+  .dark-content .followers-container li {
+    @apply bg-[#151B23] text-white;
+  }
+
   .card {
     @apply flex gap-4 flex-col;
   }

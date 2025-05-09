@@ -86,9 +86,18 @@ npm run dev
 
 ## API Enpoints Used
 
-Here area list of [Github](https;//github.com) API EndPoints Used.
+Here are the lists of [Github](https;//github.com) API EndPoints Used.
 
+-
 ```bash
  https://api.github.com/users/<username>
  ```
+Returns a JSON response of a user's profile and other endpoints to get Information about the user.
+
+-
+ ```bash
+ https://api.github.com/users?per_page=100 
+ ```
+This Endpoint returns a list of 100 random user's profile, which is then selected at random an rendered when the "Fetch Random User" button is clicked.
+
 

@@ -49,6 +49,14 @@
     @apply text-[1.05rem] bg-[#F6F8FA] p-4 break-words md:text-[1.5rem] md:bg-transparent;
   }
 
+  .dark-content .bio,
+  .dark-content .details-container,
+  .dark-content .socials,
+  .dark-content .visit-profile-button,
+  .dark-content .name-and-profile-image-section {
+    @apply bg-[#151B23] text-white;
+  }
+
   .details {
     @apply grid grid-cols-2 gap-y-3 mt-6 md:grid-cols-3;
   }
