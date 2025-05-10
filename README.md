@@ -120,7 +120,7 @@ npm run dev
      |   |      |_SharedContext.jsx
      |   |      |_SideBar.jsx
      |   |      |_TopProfileCard.jsx
-     |   |   
+     |   |
      |   |__Layouts/
      |   |      |__RootLayout.jsx
      |   |
@@ -143,7 +143,7 @@ npm run dev
      |        |_LoadingRepositories.css
      |        |_profileCard.css
      |        |_stats.css
-     |   
+     |
      |__.env
      |__.gitignore
      |__eslint.config.js
@@ -174,7 +174,6 @@ Returns a JSON response of a user's profile and other endpoints to get Informati
 # To Do
 
 - [ ] Handle Http Errors Properly
-- [ ] Add a file and folder structure section to this readme file.
 - [ ] Deploy to Netlify
 
 # Contributing
