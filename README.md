@@ -10,6 +10,7 @@ GitFind is a React-Based Github profile finder web application that allows it's 
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Folder Structure](#folder-structure)
 - [APIs Endpoints Used](#api-enpoints-used)
 - [To Do](#to-do)
 - [Contributing](#contributing)
@@ -92,6 +93,66 @@ npm run dev
 - Profile Statistics like: Most used languages,overall profile stats and a graph to show how often a user Interacts with Github can be seen by navigating to the stats page.
 
 - Toggle between dark and light mode by clicking on the button at the top right coner of the page.
+
+# Folder Structure
+
+```bash
+     GitFind/
+     |
+     |__Public/
+     |     |
+     |     |_gitfind-logo-light.webp
+     |     |_gitfind-logo.webp
+     |__src/
+     |   |
+     |   |__components/
+     |   |      |_Bio.jsx
+     |   |      |_Card.jsx
+     |   |      |_Contact.jsx
+     |   |      |_DropDown.jsx
+     |   |      |_FollowersAndFollowing.jsx
+     |   |      |_FollowersAndFollowingLoading.jsx
+     |   |      |_LoadingProfileCard.jsx
+     |   |      |_LoadingRepositories.jsx
+     |   |      |_ProfileCard.jsx
+     |   |      |_RepositoryCard.jsx
+     |   |      |_SearchBar.jsx
+     |   |      |_SharedContext.jsx
+     |   |      |_SideBar.jsx
+     |   |      |_TopProfileCard.jsx
+     |   |   
+     |   |__Layouts/
+     |   |      |__RootLayout.jsx
+     |   |
+     |   |__Logic/
+     |   |     |__FetchData.js
+     |   |     |__FetchItems.js
+     |   |     |__HandleDataFetch.js
+     |   |
+     |   |__pages/
+     |   |     |_FollowersPage.jsx
+     |   |     |_FollowingPage.jsx
+     |   |     |_HomePage.jsx
+     |   |     |_RepositoriesPage.jsx
+     |   |     |_StatsPage.jsx
+     |   |
+     |   |__styles/
+     |        |_followers-following-loading.css
+     |        |_followers-followingPage.css
+     |        |_loadingProfileCard.css
+     |        |_LoadingRepositories.css
+     |        |_profileCard.css
+     |        |_stats.css
+     |   
+     |__.env
+     |__.gitignore
+     |__eslint.config.js
+     |__index.html
+     |__package-lock.json
+     |__package.json
+     |__README.md
+     |__vite.config.js
+```
 
 ## API Enpoints Used
 

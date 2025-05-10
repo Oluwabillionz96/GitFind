@@ -6,8 +6,12 @@
   --animate-move-back-large: move-back-large 0.2s 1;
   --animate-move-away: move-away 0.4s 1;
   --animate-move-away-large: move-away-large 0.4s 1;
+  --animate-move-away-dg: move-away-dg 0.4s 1;
+  --animate-move-back-dg: move-back-dg 0.2s 1;
   --color-secondary: #001529;
   --color-primary: #f6f8fa;
+  --breakpoint-lg: 81.25rem;
+  --breakpoint-dg: 64rem;
 }
 
 @layer base {
@@ -30,7 +34,7 @@
 
 @layer components {
   .logo {
-    @apply w-[25%] md:w-[12%] lg:w-[7%];
+    @apply w-[25%] md:w-[12%] dg:w-[7%] lg:w-[7%];
   }
 
   .header {
@@ -42,7 +46,7 @@
   }
 
   .content h1 {
-    @apply text-3xl md:text-6xl font-bold lg:text-8xl lg:my-8;
+    @apply text-3xl md:text-6xl font-bold dg:text-7xl dg:my-8 lg:text-8xl lg:my-8;
   }
 
   .header-buttons {
@@ -58,11 +62,11 @@
   }
 
   .not-collapsed {
-    @apply md:w-[75%] md:ml-[25%] md:animate-move-away lg:animate-move-away-large lg:w-[86%] lg:ml-[14%];
+    @apply md:w-[75%] md:ml-[25%] dg:w-[80.5%] dg:ml-[19.5%] md:animate-move-away dg:animate-move-away-dg  lg:animate-move-away-large lg:w-[86%] lg:ml-[14%];
   }
 
   .collapsed {
-    @apply md:w-[90%] md:ml-[10%] md:animate-move-back lg:w-[94.3%] lg:ml-[5.7%] lg:animate-move-back-large;
+    @apply md:w-[90%] md:ml-[10%] dg:w-[92.5%] dg:ml-[7.5%] md:animate-move-back dg:animate-move-back-dg lg:w-[94.3%] lg:ml-[5.7%] lg:animate-move-back-large;
   }
 
   .menu {
@@ -86,7 +90,7 @@
   }
 
   .input-container {
-    @apply w-full h-12 md:h-15 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10 lg:w-[82%];
+    @apply w-full h-12 md:h-15 rounded-[0.5rem] border-2 mt-4 mb-4 relative overflow-hidden z-10 dg:w-[82%] lg:w-[82%];
   }
 
   .dark-content .input-container {
@@ -116,7 +120,7 @@
   }
 
   .fetch-random {
-    @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem] lg:absolute lg:top-[11rem] lg:w-[15%] lg:right-8;
+    @apply bg-secondary md:h-15 text-white h-12 w-full text-center text-[1.1rem] rounded-[0.5rem] dg:absolute lg:absolute dg:top-[9.55rem] lg:top-[11rem] dg:w-[15%] lg:w-[15%] dg:right-4 lg:right-8;
   }
 }
 
@@ -170,5 +174,27 @@
   to {
     width: 86%;
     margin-left: 14%;
+  }
+}
+
+@keyframes move-away-dg {
+  from {
+    width: 92.5%;
+    margin-left: 7.5%;
+  }
+  to {
+    width: 80.5%;
+    margin-left: 19.5%;
+  }
+}
+
+@keyfreme move-back-dg {
+  from {
+    width: 80.5%;
+    margin-left: 19.5%;
+  }
+  to {
+    width: 92.5%;
+    margin-left: 7.5%;
   }
 }

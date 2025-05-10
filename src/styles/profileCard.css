@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../index.css" layer(theme);
 
 @layer components {
   .profile-container {
@@ -6,11 +7,11 @@
   }
 
   .name-and-profile-image-section {
-    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-8 md:gap-20 lg:justify-center;
+    @apply flex items-center gap-4  p-2 bg-[#F6F8FA] mt-8 md:gap-20 dg:justify-center  lg:justify-center;
   }
 
   .name-and-profile-image-section > .image-container {
-    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2 md:w-[30%] lg:w-[20%];
+    @apply w-[45%] flex items-center justify-center aspect-[1] rounded-[50%] overflow-hidden border-2 md:w-[30%] dg:w-[25%]  lg:w-[20%];
   }
 
   .image-container > img {
@@ -22,11 +23,11 @@
   }
 
   .displayed-error-container > div {
-    @apply w-[100%] md:w-[50%] lg:w-[30%] mx-auto text-[1rem] h-12 rounded-[10px] flex items-center justify-center bg-red-500 text-white p-4 text-center;
+    @apply w-[100%] md:w-[50%] dg:w-[30%] lg:w-[30%] mx-auto text-[1rem] h-12 rounded-[10px] flex items-center justify-center bg-red-500 text-white p-4 text-center;
   }
 
   .name-and-profile-image-section > .name-container {
-    @apply w-[50%] flex flex-col items-start  justify-center gap-1 lg:items-center lg:w-[50%] lg:gap-4;
+    @apply w-[50%] flex flex-col items-start  justify-center gap-1 lg:items-center dg:w-[50%] lg:w-[50%] lg:gap-4;
   }
 
   .name-and-profile-image-section > .name-container > * {
@@ -34,15 +35,15 @@
   }
 
   .name-container > h2 {
-    @apply text-2xl font-medium md:text-3xl lg:text-5xl;
+    @apply text-2xl font-medium md:text-3xl dg:text-4xl lg:text-5xl;
   }
 
   .name-container .username {
-    @apply text-[0.95rem] md:text-[1.2rem] lg:text-[1.5rem];
+    @apply text-[0.95rem] md:text-[1.2rem] dg:text-[1.35rem] lg:text-[1.5rem];
   }
 
   .date-Joined {
-    @apply text-[1.1rem] md:text-[1.5rem] lg:text-3xl;
+    @apply text-[1.1rem] md:text-[1.5rem] dg:text-[1.8rem] lg:text-3xl;
   }
 
   .bio {
