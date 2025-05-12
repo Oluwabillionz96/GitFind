@@ -56,14 +56,12 @@ const RootLayout = () => {
           !isCollapsed ? "not-collapsed" : "collapsed"
         }`}
       >
-        {false && (
-          <Content className={`content ${isDark ? "dark-content" : ""}`}>
-            <SharedContext>
-              <SearchBar />
-              <Outlet />
-            </SharedContext>
-          </Content>
-        )}
+        <Content className={`content ${isDark ? "dark-content" : ""}`}>
+          <SharedContext>
+            <SearchBar />
+            <Outlet />
+          </SharedContext>
+        </Content>
       </Layout>
     </>
   );
