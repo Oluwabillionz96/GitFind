@@ -15,6 +15,11 @@ const RootLayout = () => {
   }, [location]);
 
   const { isDark, setIsDark } = useTheme();
+  if (!isDark) {
+    document.body.style.backgroundColor = "#fff";
+  } else {
+    document.body.style.backgroundColor = "#010409";
+  }
 
   return (
     <>
@@ -37,11 +42,6 @@ const RootLayout = () => {
           className="header-buttons"
           onClick={() => {
             setIsDark((prev) => !prev);
-            if (isDark) {
-              document.body.style.backgroundColor = "#fff";
-            } else {
-              document.body.style.backgroundColor = "#010409";
-            }
             localStorage.setItem("theme", !isDark);
             console.log(document.body.style.backgroundColor);
           }}
@@ -56,12 +56,14 @@ const RootLayout = () => {
           !isCollapsed ? "not-collapsed" : "collapsed"
         }`}
       >
-        <Content className={`content ${isDark ? "dark-content" : ""}`}>
-          <SharedContext>
-            <SearchBar />
-            <Outlet />
-          </SharedContext>
-        </Content>
+        {false && (
+          <Content className={`content ${isDark ? "dark-content" : ""}`}>
+            <SharedContext>
+              <SearchBar />
+              <Outlet />
+            </SharedContext>
+          </Content>
+        )}
       </Layout>
     </>
   );
