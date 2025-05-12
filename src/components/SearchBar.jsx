@@ -56,8 +56,13 @@ const SearchBar = () => {
                 );
               }, 5000);
             } else {
-              handleDataFetch(userInput.trim(), setLoading, setData, setError);
-              setUserInput("");
+              handleDataFetch(
+                userInput.trim(),
+                setLoading,
+                setData,
+                setError,
+                setUserInput
+              );
               setErrorDisplay([]);
             }
           }}
@@ -92,7 +97,13 @@ const SearchBar = () => {
             setError({ ...error, isError: true, message: "Oops" });
           } else {
             const userName = randomUsers[numbers[numbers.length - 1]].login;
-            handleDataFetch(userName, setLoading, setData, setError);
+            handleDataFetch(
+              userName,
+              setLoading,
+              setData,
+              setError,
+              setUserInput
+            );
           }
         }}
       >

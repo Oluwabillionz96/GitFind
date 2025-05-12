@@ -4,14 +4,16 @@ GitFind is a React-Based Github profile finder web application that allows it's 
 
 ## Table of Contents
 
-- [Demo](#demo)
-- [Features](#features)
-- [ScreenShots](#screenshots)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
+- [GitFind](#gitfind)
+  - [Table of Contents](#table-of-contents)
+  - [Demo](#demo)
+  - [Features](#features)
+  - [Screenshots](#screenshots)
+  - [Tech Stack](#tech-stack)
+  - [Installation](#installation)
+  - [Usage](#usage)
 - [Folder Structure](#folder-structure)
-- [APIs Endpoints Used](#api-enpoints-used)
+  - [API Enpoints Used](#api-enpoints-used)
 - [To Do](#to-do)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -105,11 +107,17 @@ npm run dev
      |     |_gitfind-logo.webp
      |__src/
      |   |
+     |   |__assets/
+     |   |     |
+     |   |     |__connect.svg
+     |   |     |__desert.svg
+     |   |
      |   |__components/
      |   |      |_Bio.jsx
      |   |      |_Card.jsx
      |   |      |_Contact.jsx
      |   |      |_DropDown.jsx
+     |   |      |_Error.jsx
      |   |      |_FollowersAndFollowing.jsx
      |   |      |_FollowersAndFollowingLoading.jsx
      |   |      |_LoadingProfileCard.jsx
@@ -137,6 +145,7 @@ npm run dev
      |   |     |_StatsPage.jsx
      |   |
      |   |__styles/
+     |        |_error.css
      |        |_followers-following-loading.css
      |        |_followers-followingPage.css
      |        |_loadingProfileCard.css
@@ -173,7 +182,6 @@ Returns a JSON response of a user's profile and other endpoints to get Informati
 
 # To Do
 
-- [ ] Handle Http Errors Properly
 - [ ] Deploy to Netlify
 
 # Contributing

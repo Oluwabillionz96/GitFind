@@ -1,5 +1,8 @@
 import { useShared } from "../components/SharedContext";
 import "../styles/stats.css";
+import Error from "../components/Error";
+import desert from "../assets/desert.svg";
+import connect from "../assets/connect.svg";
 
 const StatsPage = () => {
   const { data, loading, error } = useShared();
@@ -8,7 +11,21 @@ const StatsPage = () => {
       {loading ? (
         <p>Loading</p>
       ) : error.isError ? (
-        <p>{error.message}</p>
+        error.message === 404 ? (
+          <Error
+            image={desert}
+            headingText={404}
+            text={"User Not Found. Please Enter a valid username"}
+            alt={"Desert Scene"}
+          />
+        ) : (
+          <Error
+            image={connect}
+            headingText={"Something went wrong."}
+            text={"Check Your Internet connection and try again."}
+            alt={"Network Error Image"}
+          />
+        )
       ) : (
         <>
           {data?.login && (

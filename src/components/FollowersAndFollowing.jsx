@@ -3,9 +3,12 @@ import { useShared } from "./SharedContext";
 import { fetchItems } from "../Logic/FetchItems";
 import Card from "./Card";
 import FollowersAndFollowingLoading from "./FollowersAndFollowingLoading";
+import Error from "./Error";
+import desert from "../assets/desert.svg";
+import connect from "../assets/connect.svg";
 
 const FollowersAndFollowing = ({ follow_url, followNumber }) => {
-  const { data, loading, setLoading, error, setError} = useShared();
+  const { data, loading, setLoading, error, setError } = useShared();
   const [follow, setFollow] = useState([]);
 
   useEffect(() => {
@@ -45,7 +48,21 @@ const FollowersAndFollowing = ({ follow_url, followNumber }) => {
       {loading ? (
         <FollowersAndFollowingLoading />
       ) : error.isError ? (
-        <p>{error.message}</p>
+        error.message === 404 ? (
+          <Error
+            image={desert}
+            headingText={404}
+            text={"User Not Found. Please Enter a valid username"}
+            alt={"Desert Scene"}
+          />
+        ) : (
+          <Error
+            image={connect}
+            headingText={"Something went wrong."}
+            text={"Check Your Internet connection and try again."}
+            alt={"Network Error Image"}
+          />
+        )
       ) : (
         <ul className="followers-container">
           {follow?.map((followData) => (

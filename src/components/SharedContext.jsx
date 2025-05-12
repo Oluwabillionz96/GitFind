@@ -11,6 +11,10 @@ export const SharedContext = ({ children }) => {
   const [error, setError] = useState({ isError: false, message: "" });
 
   useEffect(() => {
+    if (error.message === 404) {
+      return;
+    }
+    
     fetchData()
       .then((response) => {
         setData(response);
@@ -26,9 +30,9 @@ export const SharedContext = ({ children }) => {
       .then((response) => {
         setRandomUsers(response);
       })
-      .catch((err) =>
-        setError({ ...error, isError: true, message: err.message })
-      );
+      .catch((err) => {
+        setError({ ...error, isError: true, message: err.message });
+      });
   }, []);
 
   return (

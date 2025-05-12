@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer components {
+  .error {
+    @apply my-4;
+  }
+
+  .error h1 {
+    @apply text-center my-2;
+  }
+
+  .error img {
+    @apply block mx-auto md:w-[60%] md:my-8 lg:w-[40%];
+  }
+
+  .error p {
+    @apply mx-auto text-[1.2rem] text-center mt-4;
+  }
+
+  .error button {
+    @apply w-[90%] mx-auto block py-3 my-8 bg-[#001529] text-white text-[1.2rem] rounded-2xl lg:h-15;
+  }
+
+  .dark-content .error p {
+    @apply text-white;
+  }
+
+  .dark-content .error button {
+    @apply text-[#001529] bg-white;
+  }
+}

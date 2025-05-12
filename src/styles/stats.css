@@ -9,8 +9,16 @@
     @apply text-2xl text-center mb-2;
   }
 
+  .dark-content .stats h2 {
+    @apply text-white;
+  }
+
   .stats div {
     @apply border-[1px] rounded-[10px] overflow-hidden min-h-40 h-fit;
+  }
+
+  .dark-content .stats div {
+    @apply border-white;
   }
 
   .stats img {
