@@ -1,4 +1,4 @@
-import { useShared } from "../components/SharedContext";
+import { useShared, useTheme } from "../components/SharedContext";
 import "../styles/stats.css";
 import Error from "../components/Error";
 import desert from "../assets/desert.svg";
@@ -6,6 +6,7 @@ import connect from "../assets/connect.svg";
 
 const StatsPage = () => {
   const { data, loading, error } = useShared();
+  const { isDark } = useTheme();
   return (
     <>
       {loading ? (
@@ -33,14 +34,22 @@ const StatsPage = () => {
               <div className="most-used-languages">
                 <h2>Most Used Languages</h2>
                 <img
-                  src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${data?.login}&theme=github-light&hide_title=true`}
+                  src={
+                    !isDark
+                      ? `https://github-readme-stats.vercel.app/api/top-langs/?username=${data?.login}&theme=github-light&hide_title=true`
+                      : `https://github-readme-stats.vercel.app/api/top-langs/?username=${data?.login}&theme=dark&hide_title=true`
+                  }
                   alt="stats"
                 />
               </div>
               <div className="stats">
                 <h2>Stats</h2>
                 <img
-                  src={`https://github-readme-stats.vercel.app/api?username=${data?.login}&theme=blueberry}`}
+                  src={
+                    !isDark
+                      ? `https://github-readme-stats.vercel.app/api?username=${data?.login}&theme=blueberry}`
+                      : `https://github-readme-stats.vercel.app/api?username=${data?.login}&theme=dark`
+                  }
                   alt="stats"
                 />
               </div>

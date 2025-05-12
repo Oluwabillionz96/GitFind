@@ -21,7 +21,36 @@ const SearchBar = () => {
   } = useShared();
 
   return (
-    <>
+    <div
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          if (!userInput) {
+            const id = ++errorId.current;
+            const newError = {
+              id,
+              text: "Search Input Is required!",
+            };
+
+            setErrorDisplay((prev) => [...prev, newError]);
+
+            setTimeout(() => {
+              setErrorDisplay((prev) =>
+                prev.filter((error) => error.id !== id)
+              );
+            }, 5000);
+          } else {
+            handleDataFetch(
+              userInput.trim(),
+              setLoading,
+              setData,
+              setError,
+              setUserInput
+            );
+            setErrorDisplay([]);
+          }
+        }
+      }}
+    >
       <div className="displayed-error-container ">
         {errordisplay.map((err) => (
           <div key={err.id}>{err.text}</div>
@@ -125,7 +154,7 @@ const SearchBar = () => {
       ) : error.isError ? null : (
         <TopProfileCard data={data} />
       )}
-    </>
+    </div>
   );
 };
 
