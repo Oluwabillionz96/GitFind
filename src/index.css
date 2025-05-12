@@ -33,6 +33,10 @@
 }
 
 @layer components {
+  .dark {
+    @apply bg-[#010409];
+  }
+
   .logo {
     @apply w-[25%] md:w-[12%] dg:w-[7%] lg:w-[7%];
   }

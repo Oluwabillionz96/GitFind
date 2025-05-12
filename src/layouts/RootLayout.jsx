@@ -15,11 +15,13 @@ const RootLayout = () => {
   }, [location]);
 
   const { isDark, setIsDark } = useTheme();
-  if (!isDark) {
-    document.body.style.backgroundColor = "#fff";
-  } else {
-    document.body.style.backgroundColor = "#010409";
-  }
+  useEffect(() => {
+    if (!isDark) {
+      document.body.style.backgroundColor = "#fff";
+    } else {
+      document.body.style.backgroundColor = "#010409";
+    }
+  }, [isDark]);
 
   return (
     <>
@@ -32,11 +34,11 @@ const RootLayout = () => {
         >
           {isCollapsed ? <AiOutlineMenuUnfold /> : <AiOutlineMenuFold />}
         </button>
-        <img
-          src={isDark ? "./gitfind-logo-light.webp" : "./gitfind-logo.webp"}
-          alt="An animated image of a cat with Binoculars"
-          className="logo"
-        />
+        {isDark ? (
+          <img src="./gitfind-logo-light.webp" alt="Logo" className="logo" />
+        ) : (
+          <img src="./gitfind-logo.webp" alt="Logo" className="logo" />
+        )}
 
         <button
           className="header-buttons"
@@ -51,6 +53,7 @@ const RootLayout = () => {
       </header>
       <SideBar isCollapsed={isCollapsed} dark={isDark} />
       {!isCollapsed && <SidebarMobile dark={isDark} />}
+
       <Layout
         className={`main-layout, ${
           !isCollapsed ? "not-collapsed" : "collapsed"
