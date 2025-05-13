@@ -38,7 +38,7 @@
   }
 
   .header {
-    @apply flex gap-[2rem] items-center justify-around h-[16%] bg-primary fixed top-0 left-0 right-0 z-15;
+    @apply flex gap-[2rem] items-center justify-around h-[16vh] bg-primary fixed top-0 left-0 right-0 z-15;
   }
 
   .dark-header {
@@ -62,11 +62,11 @@
   }
 
   .not-collapsed {
-    @apply md:w-[75%] md:ml-[25%] dg:w-[80.5%] dg:ml-[19.5%] md:animate-move-away dg:animate-move-away-dg  lg:animate-move-away-large lg:w-[86%] lg:ml-[14%];
+    @apply md:w-[75%] relative top-[16vh] md:ml-[25%] dg:w-[80.5%] dg:ml-[19.5%] md:animate-move-away dg:animate-move-away-dg  lg:animate-move-away-large lg:w-[86%] lg:ml-[14%];
   }
 
   .collapsed {
-    @apply md:w-[90%] md:ml-[10%] dg:w-[92.5%] dg:ml-[7.5%] md:animate-move-back dg:animate-move-back-dg lg:w-[94.3%] lg:ml-[5.7%] lg:animate-move-back-large;
+    @apply md:w-[90%]  relative top-[16vh]  md:ml-[10%] dg:w-[92.5%] dg:ml-[7.5%] md:animate-move-back dg:animate-move-back-dg lg:w-[94.3%] lg:ml-[5.7%] lg:animate-move-back-large;
   }
 
   .menu {
@@ -78,7 +78,7 @@
   }
 
   .content {
-    @apply h-full bg-white relative top-[16vh] p-4;
+    @apply h-full bg-white p-4;
   }
 
   .dark-content {
